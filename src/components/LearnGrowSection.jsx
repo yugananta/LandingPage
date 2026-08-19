@@ -113,7 +113,7 @@ export default function LearnGrowSection() {
             {/* CTA Link Button */}
             <div className="mt-2">
               <a 
-                href="#learn-grow-section"
+                href="https://my.gotrading.id/"
                 className="px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-indigo-500/20 inline-flex items-center gap-2"
               >
                 Join Community Discussions

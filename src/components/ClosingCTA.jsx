@@ -55,9 +55,18 @@ export default function ClosingCTA() {
             </h3>
 
             {/* Card description */}
-            <p className="text-white/85 text-xs md:text-sm leading-relaxed">
+            <p className="text-white/85 text-xs md:text-sm leading-relaxed mb-2">
               Find local trading partners, journal automatically, receive AI audits, and accelerate your performance today.
             </p>
+
+            {/* CTA Button */}
+            <a 
+              href="https://my.gotrading.id/"
+              className="mt-2 px-8 py-3.5 rounded-full bg-white text-indigo-700 font-extrabold text-xs md:text-sm hover:bg-slate-100 transition-all shadow-lg active:scale-95 inline-flex items-center gap-2"
+            >
+              Join a Community
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
             
           </div>
         </div>

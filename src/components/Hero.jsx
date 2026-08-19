@@ -112,7 +112,7 @@ export default function Hero() {
               {/* CTA Buttons */}
               <div className="flex flex-wrap justify-start gap-4 mt-2">
                 <a 
-                  href="#how-it-works"
+                  href="https://my.gotrading.id/"
                   className="px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-indigo-500/20 inline-flex items-center gap-2"
                 >
                   Join a Community
@@ -389,7 +389,7 @@ export default function Hero() {
 
               {/* Full Width Gradient Button */}
               <a 
-                href="#how-it-works"
+                href="https://my.gotrading.id/"
                 className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-2 transition-all duration-300"
               >
                 Join a Community!

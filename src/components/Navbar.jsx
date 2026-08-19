@@ -46,17 +46,32 @@ export default function Navbar() {
         </div>
         
         {/* Buttons / hamburger toggle */}
-        <div className="flex items-center gap-4">
-          <button className="hidden md:block text-on-surface hover:opacity-80 transition-all duration-200 font-label-sm text-label-sm">
+        <div className="flex items-center gap-2 md:gap-4">
+          <a 
+            href="https://my.gotrading.id/"
+            className="hidden md:block text-on-surface hover:opacity-80 transition-all duration-200 font-label-sm text-label-sm"
+          >
             Log In
-          </button>
+          </a>
           
-          <button className="hidden md:block primary-gradient-bg text-white px-6 py-2.5 rounded-full font-label-sm text-label-sm hover:opacity-80 transition-all duration-200 active:scale-95">
+          <a 
+            href="https://my.gotrading.id/"
+            className="hidden md:block primary-gradient-bg text-white px-6 py-2.5 rounded-full font-label-sm text-label-sm hover:opacity-80 transition-all duration-200 active:scale-95"
+          >
             Get Started
-          </button>
+          </a>
           
+          {/* Mobile Sign In button */}
+          <a 
+            href="https://my.gotrading.id/"
+            className="md:hidden primary-gradient-bg text-white px-4 py-2 rounded-full font-bold text-xs hover:opacity-90 transition-all shadow-md active:scale-95 flex items-center gap-1"
+          >
+            <span className="material-symbols-outlined text-sm">login</span>
+            Sign In
+          </a>
+
           <button 
-            className="md:hidden text-on-surface focus:outline-none"
+            className="md:hidden text-on-surface focus:outline-none ml-1"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -87,12 +102,20 @@ export default function Navbar() {
             FAQ
           </a>
           <div className="w-full flex flex-col gap-2 pt-2">
-            <button className="text-on-surface hover:opacity-80 transition-all duration-200 font-label-sm text-label-sm border border-on-surface/10 rounded-full w-full py-2 text-center" onClick={() => setIsOpen(false)}>
+            <a 
+              href="https://my.gotrading.id/"
+              className="text-on-surface hover:opacity-80 transition-all duration-200 font-label-sm text-label-sm border border-on-surface/10 rounded-full w-full py-2 text-center block" 
+              onClick={() => setIsOpen(false)}
+            >
               Log In
-            </button>
-            <button className="primary-gradient-bg text-white font-label-sm text-label-sm rounded-full w-full py-2.5 text-center hover:opacity-80 transition-all duration-200 active:scale-95" onClick={() => setIsOpen(false)}>
+            </a>
+            <a 
+              href="https://my.gotrading.id/"
+              className="primary-gradient-bg text-white font-label-sm text-label-sm rounded-full w-full py-2.5 text-center block hover:opacity-80 transition-all duration-200 active:scale-95" 
+              onClick={() => setIsOpen(false)}
+            >
               Get Started
-            </button>
+            </a>
           </div>
         </div>
       )}

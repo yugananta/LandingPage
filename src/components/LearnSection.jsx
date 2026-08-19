@@ -304,7 +304,7 @@ export default function LearnSection() {
 
         {/* Action Button */}
         <div className="mt-12 flex justify-center">
-          <a href="#how-it-works" className="primary-gradient-bg text-white px-9 py-4 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-xl shadow-primary/25 inline-flex items-center gap-2">
+          <a href="https://my.gotrading.id/" className="primary-gradient-bg text-white px-9 py-4 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-xl shadow-primary/25 inline-flex items-center gap-2">
             Start Journal Progress & AI Audit
             <span className="material-symbols-outlined text-base">arrow_forward</span>
           </a>
