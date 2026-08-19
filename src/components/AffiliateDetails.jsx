@@ -98,7 +98,7 @@ export default function AffiliateDetails() {
             {/* Row 1: moves to left */}
             <div className="flex gap-4 w-[160%] md:w-[120%] transition-transform duration-100 ease-out will-change-transform opacity-70"
                  style={{ transform: `translateX(${-50 - (scrollOffset * 0.06)}px)` }}>
-              {[...PARTNER_AVATARS_1, ...PARTNER_AVATARS_1].map((img, i) => (
+               {[...PARTNER_AVATARS_1, ...PARTNER_AVATARS_1].map((img, i) => (
                 <div key={i} className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border border-slate-200 shadow-sm shrink-0">
                   <img src={img} alt="Partner avatar" className="w-full h-full object-cover" />
                 </div>
@@ -108,7 +108,7 @@ export default function AffiliateDetails() {
             {/* Row 2: moves to right */}
             <div className="flex gap-4 w-[160%] md:w-[120%] transition-transform duration-100 ease-out will-change-transform opacity-70"
                  style={{ transform: `translateX(${-300 + (scrollOffset * 0.06)}px)` }}>
-              {[...PARTNER_AVATARS_2, ...PARTNER_AVATARS_2].map((img, i) => (
+               {[...PARTNER_AVATARS_2, ...PARTNER_AVATARS_2].map((img, i) => (
                 <div key={i} className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border border-slate-200 shadow-sm shrink-0">
                   <img src={img} alt="Partner avatar" className="w-full h-full object-cover" />
                 </div>

@@ -98,7 +98,7 @@ export default function LearnSection() {
   };
 
   return (
-    <section id="ai-coach" className="py-16 lg:py-24 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-background relative overflow-hidden">
+    <section id="ai-coach" className="pt-6 pb-16 lg:pt-8 lg:pb-24 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-background relative overflow-hidden">
       {/* Ambient glows */}
       <div className="absolute top-1/3 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[100px] pointer-events-none" />
@@ -368,8 +368,63 @@ export default function LearnSection() {
 
         </div>
 
+        {/* ── SEAMLESS DIVISION: COLLABORATIVE LEARNING ── */}
+        <div className="mt-24 pt-20 border-t border-surface-variant/10 animate-on-scroll fade-in-up">
+          
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[10px] font-bold uppercase tracking-widest mb-5">
+              <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>school</span>
+              COLLABORATIVE LEARNING
+            </div>
+
+            <h2 className="font-display-lg text-3xl md:text-5xl font-black text-on-background mb-4 leading-tight">
+              Learn and <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-indigo-300 bg-clip-text text-transparent">Grow Together</span>.
+            </h2>
+
+            <p className="text-on-surface-variant font-body-md text-base leading-relaxed">
+              Connect with serious traders, share verified trading setup ideas, and support each other to build long-term consistency.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            {[
+              {
+                title: 'Local Study Partners',
+                desc: 'Find dedicated trade study partners in your city, or connect with global peers who share your style.',
+                icon: 'groups'
+              },
+              {
+                title: 'Setup Sharing',
+                desc: 'Share setups directly from your AI-audited journal to get real mathematical feedback from the community.',
+                icon: 'share'
+              },
+              {
+                title: 'Habit Accountability',
+                desc: 'It is not a competition; we support each other to eliminate mental blocks and master trading discipline.',
+                icon: 'trending_up'
+              }
+            ].map((col, idx) => (
+              <div 
+                key={idx}
+                className="p-6 md:p-8 rounded-3xl bg-surface-container-low border border-surface-variant/15 hover:border-primary/30 transition-all duration-300 group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/15 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors mb-5">
+                    <span className="material-symbols-outlined text-indigo-400 text-xl" style={{ fontVariationSettings: '"FILL" 1' }}>
+                      {col.icon}
+                    </span>
+                  </div>
+                  <h3 className="text-on-surface font-extrabold text-lg mb-2 tracking-tight">{col.title}</h3>
+                  <p className="text-on-surface-variant text-sm leading-relaxed">{col.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
         {/* Action Button */}
-        <div className="mt-12 flex justify-center">
+        <div className="mt-16 flex justify-center">
           <a href="https://my.gotrading.id/" className="primary-gradient-bg text-white px-9 py-4 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-xl shadow-primary/25 inline-flex items-center gap-2">
             Start Journal Progress & AI Audit
             <span className="material-symbols-outlined text-base">arrow_forward</span>

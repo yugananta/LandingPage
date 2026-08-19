@@ -75,23 +75,41 @@ export default function NewsSection() {
               </p>
             </div>
 
-            {/* Feature items - styled like AffiliateDetails */}
+            {/* Feature items - styled like AffiliateDetails but with square grids */}
             <div className="flex flex-col gap-4">
-              {[
-                { title: 'Real-Time Economic Calendar', desc: 'Schedules of economic data releases and their market impact levels, updated automatically.', icon: 'schedule' },
-                { title: 'Pre-Release Notifications', desc: 'Get reminders before high-impact news releases to keep your positions prepared.', icon: 'notifications_active' },
-                { title: 'Journal Integration', desc: 'Tag and review your trades based on the market news context happening at that moment.', icon: 'auto_stories' }
-              ].map((item, idx) => (
-                <div key={idx} className="p-5 rounded-2xl bg-slate-50 border border-slate-100/80 flex gap-4 hover:border-indigo-500/20 hover:shadow-md transition-all duration-300 group">
-                  <div className="w-12 h-12 rounded-xl bg-slate-200/50 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                    <span className="material-symbols-outlined text-indigo-600 group-hover:text-white text-xl">{item.icon}</span>
+              {/* Grid for side-by-side small square cards */}
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
+                {[
+                  { title: 'Real-Time Economic Calendar', desc: 'Schedules of economic data releases and their market impact levels, updated automatically.', icon: 'schedule' },
+                  { title: 'Pre-Release Notifications', desc: 'Get reminders before high-impact news releases to keep your positions prepared.', icon: 'notifications_active' }
+                ].map((item, idx) => (
+                  <div key={idx} className="p-5 md:p-6 rounded-2xl bg-slate-50 border border-slate-100/80 hover:border-indigo-500/20 hover:shadow-md transition-all duration-300 group flex flex-col justify-between w-full aspect-square text-left">
+                    <div>
+                      <div className="w-10 h-10 rounded-xl bg-slate-200/50 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 mb-3">
+                        <span className="material-symbols-outlined text-indigo-600 group-hover:text-white text-base md:text-lg">{item.icon}</span>
+                      </div>
+                      <h3 className="text-slate-900 font-extrabold text-xs md:text-sm mb-1 leading-tight tracking-tight line-clamp-2">{item.title}</h3>
+                      <p className="text-slate-500 text-[10px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-4">{item.desc}</p>
+                    </div>
+                    <div className="mt-2">
+                      <span className="text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-full border bg-indigo-50 text-indigo-600 border-indigo-100 inline-block">
+                        News & Calendar
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-slate-900 font-bold text-base mb-1">{item.title}</h3>
-                    <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
-                  </div>
+                ))}
+              </div>
+
+              {/* Journal Integration wide card */}
+              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100/80 flex gap-4 hover:border-indigo-500/20 hover:shadow-md transition-all duration-300 group text-left">
+                <div className="w-12 h-12 rounded-xl bg-slate-200/50 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                  <span className="material-symbols-outlined text-indigo-600 group-hover:text-white text-xl">auto_stories</span>
                 </div>
-              ))}
+                <div>
+                  <h3 className="text-slate-900 font-bold text-base mb-1">Journal Integration</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">Tag and review your trades based on the market news context happening at that moment.</p>
+                </div>
+              </div>
             </div>
 
             {/* CTA Link Button */}

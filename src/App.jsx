@@ -7,7 +7,6 @@ import BenefitsSection from './components/BenefitsSection';
 import AffiliateDetails from './components/AffiliateDetails';
 import NewsSection from './components/NewsSection';
 import IntegratedFeatures from './components/IntegratedFeatures';
-import LearnGrowSection from './components/LearnGrowSection';
 import LearnSection from './components/LearnSection';
 import FAQ from './components/FAQ';
 import ClosingCTA from './components/ClosingCTA';
@@ -56,7 +55,6 @@ function App() {
         <LearnSection />
         <NewsSection />
         <IntegratedFeatures />
-        <LearnGrowSection />
         <FAQ />
         <ClosingCTA />
       </main>
