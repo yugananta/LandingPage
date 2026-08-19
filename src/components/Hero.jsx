@@ -365,14 +365,14 @@ export default function Hero() {
                   </div>
                 ))}
 
-                {/* Hoodie Avatar - scaled proportionally without overlapping headline */}
+                {/* Hoodie Avatar - scaled down 25% for perfect proportion and safe spacing */}
                 <img 
                   src="/human.png" 
                   alt="Trader in hoodie" 
-                  className="absolute bottom-0 w-[78%] h-[88%] object-contain object-bottom z-10 scale-[1.12] origin-bottom filter drop-shadow-[0_20px_40px_rgba(99,102,241,0.35)]"
+                  className="absolute bottom-0 w-[78%] h-[88%] object-contain object-bottom z-10 scale-[1.32] translate-y-[24px] origin-bottom filter drop-shadow-[0_20px_45px_rgba(99,102,241,0.45)]"
                   style={{
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 96%)',
-                    maskImage: 'linear-gradient(to bottom, black 50%, transparent 96%)'
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 45%, transparent 94%)',
+                    maskImage: 'linear-gradient(to bottom, black 45%, transparent 94%)'
                   }}
                 />
 

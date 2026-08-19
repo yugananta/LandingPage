@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
         <a 
           href="#" 
-          className="flex items-center" 
+          className="flex items-center -ml-3 md:-ml-4" 
           aria-label="GoTrading Home"
         >
           {/* Logo switches based on current theme - always dark mode logo */}
@@ -55,7 +55,7 @@ export default function Navbar() {
         </div>
         
         {/* Buttons / language selector */}
-        <div className="flex items-center gap-2.5 md:gap-4 relative">
+        <div className="flex items-center gap-1.5 md:gap-4 relative -mr-2 md:mr-0">
           <a 
             href="https://my.gotrading.id/"
             className="hidden md:block text-on-surface hover:opacity-80 transition-all duration-200 font-label-sm text-label-sm"
@@ -70,25 +70,24 @@ export default function Navbar() {
             Get Started
           </a>
           
-          {/* Mobile Sign In button (30% smaller) */}
+          {/* Mobile Sign In button (Another 30% smaller) */}
           <a 
             href="https://my.gotrading.id/"
-            className="md:hidden primary-gradient-bg text-white px-2.5 py-1.5 rounded-full font-bold text-[10px] hover:opacity-90 transition-all shadow-sm active:scale-95 flex items-center gap-0.5"
+            className="md:hidden primary-gradient-bg text-white px-1.5 py-1 rounded-full font-extrabold text-[8px] tracking-wide hover:opacity-90 transition-all shadow-sm active:scale-95 flex items-center gap-0.5"
           >
-            <span className="material-symbols-outlined text-[12px]">login</span>
+            <span className="material-symbols-outlined text-[10px]">login</span>
             Sign In
           </a>
 
           {/* Language Flag selector dropdown */}
           <div className="relative">
             <button 
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-200"
+              className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-200"
               onClick={() => setLangOpen(!langOpen)}
               aria-label="Select language"
             >
               <span className="text-base leading-none">{selectedLang.flag}</span>
               <span className="text-[10px] font-bold text-gray-300 uppercase">{selectedLang.code}</span>
-              <span className="material-symbols-outlined text-[12px] text-gray-400">keyboard_arrow_down</span>
             </button>
 
             {/* Language Dropdown List - positioned perfectly below header so it doesn't cover it */}

@@ -4,15 +4,15 @@ export default function Footer() {
   return (
     <footer className="w-full rounded-t-3xl bg-[#141522] border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-gutter py-16 px-margin-desktop max-w-container-max mx-auto text-left">
       {/* Logo & Tagline */}
-      <div className="col-span-1 flex flex-col gap-4">
-        <div className="h-16 flex items-center">
+      <div className="col-span-1 flex flex-col gap-1">
+        <div>
           <img
             src="/logo.png"
             alt="GoTrading"
-            className="h-full w-auto max-w-[180px] object-contain transition-opacity duration-300"
+            className="h-12 w-auto max-w-[180px] object-contain transition-opacity duration-300 -ml-[25px]"
           />
         </div>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-sm leading-relaxed mt-[-8px]">
           Empowering local traders with AI-driven insights and real human connections.
         </p>
         <div className="flex gap-4 mt-4">
