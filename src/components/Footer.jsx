@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="w-full rounded-t-3xl bg-[#141522] border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-gutter py-16 px-margin-desktop max-w-container-max mx-auto text-left">
+    <footer className="w-full rounded-t-3xl bg-[#141522] border-t border-white/5 grid grid-cols-2 md:grid-cols-3 gap-gutter py-16 px-margin-desktop max-w-container-max mx-auto text-left">
       {/* Logo & Tagline */}
-      <div className="col-span-1 flex flex-col gap-1">
+      <div className="col-span-2 md:col-span-1 flex flex-col gap-1">
         <div>
           <img
             src="/logo.png"
@@ -46,7 +46,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Copyright Block */}
-      <div className="col-span-1 md:col-span-3 mt-8 pt-8 border-t border-white/5 text-center">
+      <div className="col-span-2 md:col-span-3 mt-8 pt-8 border-t border-white/5 text-center">
         <div className="flex flex-wrap justify-center gap-4 mb-4">
           <a className="text-gray-500 hover:text-white transition-colors text-xs" href="#">Privacy Policy</a>
           <a className="text-gray-500 hover:text-white transition-colors text-xs" href="#">Terms of Service</a>
