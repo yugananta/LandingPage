@@ -47,7 +47,7 @@ export default function Footer() {
           <a className="text-gray-500 hover:text-white transition-colors text-xs" href="#">Help</a>
         </div>
         <p className="text-gray-500 text-xs">
-          © 2024 GoTrading. All rights reserved. Built for the community.
+          © 2026 GoTrading. All rights reserved. Built for the community.
         </p>
       </div>
     </footer>

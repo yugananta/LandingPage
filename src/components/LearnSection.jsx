@@ -1,40 +1,194 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const FEATURES = [
+const COMBINED_FEATURES = [
   {
+    category: 'progress',
+    icon: 'book',
+    title: 'Automatic Trade Logging',
+    desc: 'Record entries, exits, lot sizes, and PnL automatically from connected broker accounts.',
+  },
+  {
+    category: 'progress',
+    icon: 'analytics',
+    title: 'Progress & Statistics',
+    desc: 'Track win rate, profit factor, drawdown, and growth metrics over time with clean visuals.',
+  },
+  {
+    category: 'psychology',
     icon: 'smart_toy',
     title: 'Error Pattern Detection',
     desc: 'Detects repetitive bad habits and alerts you before losses escalate.',
   },
   {
-    icon: 'analytics',
-    title: 'Objective Evaluation',
-    desc: 'Reviews emotional volatility during drawdowns and recommends lot sizes based on historical win rates.',
+    category: 'psychology',
+    icon: 'psychology',
+    title: 'Psychology & FOMO Guard',
+    desc: 'Monitors emotional volatility during drawdowns and recommends cooldown periods.',
   },
   {
+    category: 'progress',
     icon: 'sell',
-    title: 'Unbiased Insights',
+    title: 'Unbiased Setup Insights',
     desc: 'Provides pure mathematical feedback to track which setups consistently yield profits.',
   },
   {
+    category: 'psychology',
     icon: 'notifications_active',
-    title: 'Overtrade & FOMO Alerts',
+    title: 'Overtrade & Revenge Alerts',
     desc: 'Smart notifications that warn you when revenge trading patterns are detected.',
   },
 ];
 
 export default function LearnSection() {
+  const [activeTab, setActiveTab] = useState('all'); // 'all', 'progress', 'psychology'
+
+  const filteredFeatures = activeTab === 'all' 
+    ? COMBINED_FEATURES 
+    : COMBINED_FEATURES.filter(f => f.category === activeTab);
+
   return (
-    <section id="ai-coach" className="py-12 lg:py-16 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-background relative overflow-hidden">
-      {/* Ambient */}
+    <section id="ai-coach" className="py-16 lg:py-24 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-background relative overflow-hidden">
+      {/* Ambient glows */}
+      <div className="absolute top-1/3 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-container-max mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        
+        {/* ── SECTION HEADER ── */}
+        <div className="text-center max-w-3xl mx-auto mb-12 animate-on-scroll fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary-fixed text-[10px] font-bold uppercase tracking-widest mb-5">
+            <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>auto_stories</span>
+            TRACK PROGRESS & PSYCHOLOGY AI AUDIT
+          </div>
 
-          {/* ── LEFT: Dashboard Visual ── */}
-          <div className="order-2 lg:order-1 animate-on-scroll scale-up delay-100">
-            <div className="glass-card rounded-3xl p-6 glow-effect relative">
+          <h2 className="font-display-lg text-3xl md:text-5xl font-black text-on-background mb-4 leading-tight">
+            Track Your Trading Progress & Let AI Review Your{' '}
+            <span className="primary-gradient-text">Psychology</span>.
+          </h2>
+
+          <p className="text-on-surface-variant font-body-md text-base leading-relaxed">
+            Automatically log every trade, monitor performance metrics in real-time, and let AI analyze your psychology to eliminate revenge trading, FOMO, and costly error patterns.
+          </p>
+
+          {/* Interactive Filter / Tab Buttons */}
+          <div className="flex flex-wrap justify-center gap-2 mt-8">
+            {[
+              { id: 'all', label: 'Overview All', icon: 'dashboard' },
+              { id: 'progress', label: 'Track Trading Progress', icon: 'analytics' },
+              { id: 'psychology', label: 'Psychology AI Audit', icon: 'psychology' },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-2 border ${
+                  activeTab === tab.id
+                    ? 'primary-gradient-bg text-white border-transparent shadow-lg shadow-primary/20 scale-105'
+                    : 'bg-surface-container-low text-on-surface-variant border-surface-variant/20 hover:border-primary/40'
+                }`}
+              >
+                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>
+                  {tab.icon}
+                </span>
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ── DUAL VISUAL SHOWCASE GRID ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
+
+          {/* ── LEFT VISUAL: Track Trading Progress (Journal & Stats) ── */}
+          <div className={`lg:col-span-6 transition-all duration-500 ${
+            activeTab === 'psychology' ? 'opacity-40 scale-98 hidden md:block' : 'opacity-100 scale-100'
+          }`}>
+            <div className="glass-card rounded-3xl p-6 glow-effect h-full flex flex-col justify-between border border-surface-variant/20 relative overflow-hidden">
+              
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-surface-variant/20 pb-4 mb-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-black text-xs shadow-md shadow-indigo-500/20">
+                    GT
+                  </div>
+                  <div>
+                    <div className="text-on-surface font-extrabold text-sm">Trading Progress & Journal</div>
+                    <div className="text-on-surface-variant text-[11px]">Automatic Trade Recording</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full text-emerald-400 text-[10px] font-bold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  LIVE SYNC
+                </div>
+              </div>
+
+              {/* Transactions / Progress Log */}
+              <div className="flex flex-col gap-3 mb-4">
+                {/* Trade 1 */}
+                <div className="bg-surface-container border border-surface-variant/20 rounded-2xl p-4 text-left hover:-translate-y-0.5 transition-transform duration-200">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold text-[9px]">BUY</span>
+                      <span className="text-on-surface font-extrabold text-xs">XAUUSD</span>
+                      <span className="text-on-surface-variant text-[10px]">1.00 Lot</span>
+                    </div>
+                    <span className="text-on-surface-variant text-[10px]">1 hour ago</span>
+                  </div>
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <div className="text-[10px] text-on-surface-variant">Entry: <span className="font-bold text-on-surface">2315.40</span></div>
+                      <div className="text-[10px] text-on-surface-variant">Exit: <span className="font-bold text-on-surface">2326.75</span></div>
+                    </div>
+                    <div className="text-emerald-400 font-black text-base">+$1,135.01 USD</div>
+                  </div>
+                </div>
+
+                {/* Trade 2 */}
+                <div className="bg-surface-container/70 border border-surface-variant/15 rounded-2xl p-3.5 text-left">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold text-[9px]">BUY</span>
+                      <span className="text-on-surface font-extrabold text-xs">GBPUSD</span>
+                      <span className="text-on-surface-variant text-[10px]">0.50 Lot</span>
+                    </div>
+                    <span className="text-on-surface-variant text-[10px]">4 hours ago</span>
+                  </div>
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <div className="text-[10px] text-on-surface-variant">Entry: <span className="font-bold text-on-surface">1.26400</span></div>
+                    </div>
+                    <div className="text-emerald-400 font-black text-sm">+$340.20 USD</div>
+                  </div>
+                </div>
+
+                {/* Trade 3 */}
+                <div className="bg-surface-container/40 border border-surface-variant/10 rounded-2xl p-3 text-left">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded bg-rose-500/15 text-rose-400 font-bold text-[9px]">SELL</span>
+                      <span className="text-on-surface font-extrabold text-xs">BTCUSD</span>
+                    </div>
+                    <div className="text-rose-400 font-black text-xs">-$120.00 USD</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Progress Metrics Banner */}
+              <div className="bg-primary/10 border border-primary/20 rounded-2xl p-3.5 flex items-center justify-between text-xs">
+                <span className="text-on-surface font-bold flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary-fixed text-base">trending_up</span>
+                  Total Progress
+                </span>
+                <span className="text-primary-fixed font-black text-sm">+$1,355.21 USD</span>
+              </div>
+
+            </div>
+          </div>
+
+          {/* ── RIGHT VISUAL: Psychology AI Audit Assistant ── */}
+          <div className={`lg:col-span-6 transition-all duration-500 ${
+            activeTab === 'progress' ? 'opacity-40 scale-98 hidden md:block' : 'opacity-100 scale-100'
+          }`}>
+            <div className="glass-card rounded-3xl p-6 glow-effect h-full flex flex-col justify-between border border-surface-variant/20 relative overflow-hidden">
 
               {/* Top bar */}
               <div className="flex items-center justify-between border-b border-surface-variant/20 pb-4 mb-5">
@@ -43,45 +197,45 @@ export default function LearnSection() {
                     <span className="material-symbols-outlined text-primary-fixed text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>smart_toy</span>
                   </div>
                   <div>
-                    <div className="text-on-surface font-bold text-sm">AI Audit Assistant</div>
-                    <div className="text-on-surface-variant text-xs">GoTrading Intelligence</div>
+                    <div className="text-on-surface font-bold text-sm">AI Audit & Review Assistant</div>
+                    <div className="text-on-surface-variant text-xs">Psychology & Discipline Evaluator</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-emerald-400 text-xs font-bold">LIVE</span>
+                  <span className="text-emerald-400 text-xs font-bold">ACTIVE</span>
                 </div>
               </div>
 
               {/* Performance rings */}
-              <div className="grid grid-cols-3 gap-3 mb-5">
+              <div className="grid grid-cols-3 gap-3 mb-4">
                 {[
                   { label: 'Win Rate', val: '68%', pct: 68, color: '#6366f1' },
                   { label: 'Avg R:R', val: '1:1.5', pct: 50, color: '#8b5cf6' },
-                  { label: 'Consistency', val: 'A', pct: 92, color: '#a78bfa' },
+                  { label: 'Discipline', val: 'Grade A', pct: 92, color: '#a78bfa' },
                 ].map((m, i) => (
-                  <div key={i} className="bg-surface-container rounded-xl p-4 text-center border border-surface-variant/20">
-                    <div className="relative w-14 h-14 mx-auto mb-2">
+                  <div key={i} className="bg-surface-container rounded-xl p-3 text-center border border-surface-variant/20">
+                    <div className="relative w-12 h-12 mx-auto mb-1">
                       <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                         <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                            fill="none" stroke="var(--border-card-color)" strokeWidth="3" />
                         <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                            fill="none" stroke={m.color} strokeDasharray={`${m.pct}, 100`} strokeWidth="3" strokeLinecap="round" />
                       </svg>
-                      <span className="absolute inset-0 flex items-center justify-center text-on-surface font-black text-xs">{m.val}</span>
+                      <span className="absolute inset-0 flex items-center justify-center text-on-surface font-black text-[10px]">{m.val}</span>
                     </div>
-                    <div className="text-on-surface-variant text-[10px]">{m.label}</div>
+                    <div className="text-on-surface-variant text-[9px]">{m.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Weekly chart bars */}
-              <div className="bg-surface-container rounded-xl p-4 border border-surface-variant/20 mb-4">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-on-surface text-xs font-bold">Weekly Performance</span>
+              <div className="bg-surface-container rounded-xl p-3 border border-surface-variant/20 mb-3">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-on-surface text-xs font-bold">Psychology Consistency</span>
                   <span className="text-emerald-400 text-xs font-bold">+12.4%</span>
                 </div>
-                <div className="flex items-end gap-2 h-16">
+                <div className="flex items-end gap-2 h-12">
                   {[40, 65, 50, 80, 55, 90, 70].map((h, i) => (
                     <div key={i} className="flex-1 flex flex-col items-center gap-1">
                       <div
@@ -93,72 +247,71 @@ export default function LearnSection() {
                             : 'rgba(99,102,241,0.2)'
                         }}
                       />
-                      <span className="text-on-surface-variant text-[8px]">
-                        {['S', 'M', 'T', 'W', 'T', 'F', 'S'][i]}
-                      </span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Insight warning box */}
-              <div className="rounded-xl p-4 border border-amber-500/20 bg-amber-500/8">
-                <div className="flex items-start gap-3">
+              {/* Danger Pattern Warning Box */}
+              <div className="rounded-xl p-3.5 border border-amber-500/30 bg-amber-500/10 text-left">
+                <div className="flex items-start gap-2.5">
                   <span className="material-symbols-outlined text-amber-400 text-base mt-0.5 shrink-0" style={{ fontVariationSettings: '"FILL" 1' }}>
                     warning
                   </span>
                   <div>
-                    <div className="text-on-surface font-bold text-xs mb-1">Danger Pattern Detected</div>
-                    <p className="text-on-surface-variant text-[11px] leading-relaxed">
-                      You tend to open new positions within 15 minutes of a cut loss on XAUUSD. The win rate of these revenge trades is only 22%. Recommendation: take a 2-hour cooldown.
+                    <div className="text-on-surface font-bold text-xs mb-0.5">Danger Pattern Detected</div>
+                    <p className="text-on-surface-variant text-[10px] leading-relaxed">
+                      You tend to open new positions within 15 minutes of a cut loss on XAUUSD. Win rate of revenge trades is only 22%. Recommendation: 2-hour cooldown.
                     </p>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
 
-          {/* ── RIGHT: Text Content ── */}
-          <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary-fixed text-[10px] font-bold uppercase tracking-widest mb-6 animate-on-scroll fade-in-up">
-              <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>psychology</span>
-              AI AUDIT & REVIEW
-            </div>
+        </div>
 
-            <h2 className="font-display-lg text-display-lg text-on-background mb-4 leading-tight animate-on-scroll fade-in-up delay-100">
-              Let AI
-              <span className="primary-gradient-text"> Review Your Trades</span>.
-            </h2>
-
-            <p className="text-on-surface-variant font-body-md text-body-md mb-8 leading-relaxed animate-on-scroll fade-in-up delay-200">
-              Every entry is analyzed automatically — identifying error patterns, unprofitable habits, and hidden insights you might miss. It is not a replacement for your trading intuition, but a mirror for objective evaluation.
-            </p>
-
-            {/* Feature list */}
-            <div className="space-y-4 mb-10 animate-on-scroll fade-in-up delay-300">
-              {FEATURES.map((f, i) => (
-                <div key={i} className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+        {/* ── COMBINED FEATURES LIST ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          {filteredFeatures.map((f, i) => (
+            <div 
+              key={i} 
+              className="p-5 rounded-2xl bg-surface-container-low border border-surface-variant/15 hover:border-primary/30 transition-all duration-300 group flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <span className="material-symbols-outlined text-primary-fixed text-base" style={{ fontVariationSettings: '"FILL" 1' }}>
                       {f.icon}
                     </span>
                   </div>
-                  <div>
-                    <div className="text-on-surface font-bold text-sm mb-0.5">{f.title}</div>
-                    <div className="text-on-surface-variant text-xs leading-relaxed">{f.desc}</div>
-                  </div>
+                  <span className={`text-[9px] font-extrabold uppercase px-2.5 py-0.5 rounded-full border ${
+                    f.category === 'progress' 
+                      ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' 
+                      : 'bg-violet-500/10 text-violet-400 border-violet-500/20'
+                  }`}>
+                    {f.category === 'progress' ? 'Trading Progress' : 'Psychology AI'}
+                  </span>
                 </div>
-              ))}
+                
+                <h3 className="text-on-surface font-bold text-sm mb-1">{f.title}</h3>
+                <p className="text-on-surface-variant text-xs leading-relaxed">{f.desc}</p>
+              </div>
             </div>
-
-            <div className="flex flex-wrap gap-3 animate-on-scroll fade-in-up delay-400">
-              <a href="#how-it-works" className="primary-gradient-bg text-white px-8 py-3.5 rounded-full font-bold text-sm hover:opacity-90 transition-all glow-effect flex items-center justify-center">
-                Start AI Journal Audit
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
+
+        {/* Action Button */}
+        <div className="mt-12 flex justify-center">
+          <a href="#how-it-works" className="primary-gradient-bg text-white px-9 py-4 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-xl shadow-primary/25 inline-flex items-center gap-2">
+            Start Journal Progress & AI Audit
+            <span className="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+        </div>
+
       </div>
     </section>
   );
 }
+

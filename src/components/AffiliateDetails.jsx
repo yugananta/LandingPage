@@ -71,7 +71,7 @@ export default function AffiliateDetails() {
   }, [targetEarnings]);
 
   return (
-    <section className="py-12 lg:py-16 bg-[#161827] relative overflow-hidden border-t border-white/5">
+    <section className="py-16 lg:py-24 bg-white relative overflow-hidden border-t border-slate-200/60">
       
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
@@ -81,25 +81,25 @@ export default function AffiliateDetails() {
         {/* ======================================================== */}
         {/* SUBSECTION 3: PARALLAX PARTNERS CAROUSEL (JOIN OVER TRADERS) */}
         {/* ======================================================== */}
-        <div className="w-full lg:max-w-container-max lg:mx-auto px-4 lg:px-0 flex flex-col gap-8 text-center items-center mb-8 overflow-hidden py-4 relative">
+        <div className="w-full lg:max-w-container-max lg:mx-auto px-4 lg:px-0 flex flex-col gap-12 text-center items-center mb-16 overflow-hidden py-6 relative">
           
           <div>
-            <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
-              Join Over <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">12,000+ Traders</span>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight">
+              Join Over <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">12,000+ Traders</span>
             </h2>
-            <p className="text-white/60 text-sm md:text-base mt-2 max-w-xl mx-auto">
+            <p className="text-slate-500 text-sm md:text-base mt-3 max-w-xl mx-auto">
               From novice to veteran, traders connect and level up together using GoTrading.
             </p>
           </div>
 
           {/* Parallax scrolling rows container */}
-          <div className="w-full flex flex-col gap-4 relative select-none pointer-events-none mt-2 max-w-4xl mx-auto overflow-hidden">
+          <div className="w-full flex flex-col gap-4 relative select-none pointer-events-none mt-4 max-w-4xl mx-auto overflow-hidden">
             
             {/* Row 1: moves to left */}
             <div className="flex gap-4 w-[160%] md:w-[120%] transition-transform duration-100 ease-out will-change-transform opacity-70"
                  style={{ transform: `translateX(${-50 - (scrollOffset * 0.06)}px)` }}>
               {[...PARTNER_AVATARS_1, ...PARTNER_AVATARS_1].map((img, i) => (
-                <div key={i} className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border border-white/10 shadow-sm shrink-0">
+                <div key={i} className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border border-slate-200 shadow-sm shrink-0">
                   <img src={img} alt="Partner avatar" className="w-full h-full object-cover" />
                 </div>
               ))}
@@ -109,15 +109,15 @@ export default function AffiliateDetails() {
             <div className="flex gap-4 w-[160%] md:w-[120%] transition-transform duration-100 ease-out will-change-transform opacity-70"
                  style={{ transform: `translateX(${-300 + (scrollOffset * 0.06)}px)` }}>
               {[...PARTNER_AVATARS_2, ...PARTNER_AVATARS_2].map((img, i) => (
-                <div key={i} className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border border-white/10 shadow-sm shrink-0">
+                <div key={i} className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border border-slate-200 shadow-sm shrink-0">
                   <img src={img} alt="Partner avatar" className="w-full h-full object-cover" />
                 </div>
               ))}
             </div>
 
             {/* Left and Right blur overlays */}
-            <div className="absolute inset-y-0 left-0 w-2/12 bg-gradient-to-r from-[#161827] to-transparent pointer-events-none z-10" />
-            <div className="absolute inset-y-0 right-0 w-2/12 bg-gradient-to-l from-[#161827] to-transparent pointer-events-none z-10" />
+            <div className="absolute inset-y-0 left-0 w-2/12 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+            <div className="absolute inset-y-0 right-0 w-2/12 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
 
           </div>
 
