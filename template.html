@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GoTrading - You Are Not Alone in the Market</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+"error-container": "#93000a",
+"background": "#11131d",
+"tertiary-fixed": "#ffdbc9",
+"on-primary": "#1d00a5",
+"on-surface": "#e1e1f0",
+"primary-fixed-dim": "#c3c0ff",
+"on-secondary-container": "#b8afff",
+"on-secondary-fixed": "#180065",
+"outline-variant": "#464555",
+"on-error-container": "#ffdad6",
+"surface-container": "#1d1f2a",
+"secondary-fixed": "#e4deff",
+"on-background": "#e1e1f0",
+"on-secondary-fixed-variant": "#4228bb",
+"secondary-container": "#442bbd",
+"primary-fixed": "#e2dfff",
+"surface-container-low": "#191b26",
+"inverse-on-surface": "#2e303b",
+"secondary-fixed-dim": "#c7bfff",
+"primary": "#c3c0ff",
+"surface-variant": "#32343f",
+"on-tertiary-fixed-variant": "#763300",
+"on-primary-fixed": "#0f0069",
+"on-secondary": "#2b009e",
+"primary-container": "#4f46e5",
+"surface-dim": "#11131d",
+"surface-container-high": "#282934",
+"on-tertiary-fixed": "#331200",
+"outline": "#918fa1",
+"on-tertiary": "#532200",
+"on-surface-variant": "#c7c4d8",
+"on-error": "#690005",
+"surface-tint": "#c3c0ff",
+"surface-container-highest": "#32343f",
+"on-primary-container": "#dad7ff",
+"on-primary-fixed-variant": "#3323cc",
+"secondary": "#c7bfff",
+"surface-bright": "#373844",
+"surface-container-lowest": "#0c0e18",
+"tertiary": "#ffb68d",
+"on-tertiary-container": "#ffd2ba",
+"surface": "#11131d",
+"tertiary-fixed-dim": "#ffb68d",
+"error": "#ffb4ab",
+"inverse-primary": "#4d44e3",
+"tertiary-container": "#9d4700",
+"inverse-surface": "#e1e1f0"
+},
+borderRadius: {
+"DEFAULT": "0.25rem",
+"lg": "0.5rem",
+"xl": "0.75rem",
+"full": "9999px"
+},
+spacing: {
+"gutter": "24px",
+"container-max": "1440px",
+"margin-desktop": "64px",
+"unit": "4px",
+"margin-mobile": "20px"
+},
+fontFamily: {
+"display-lg": ["Inter"],
+"body-lg": ["Inter"],
+"body-md": ["Inter"],
+"headline-lg-mobile": ["Inter"],
+"headline-md": ["Inter"],
+"label-sm": ["Inter"],
+"headline-lg": ["Inter"]
+},
+fontSize: {
+"display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "800" }],
+"body-lg": ["18px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
+"body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
+"headline-lg-mobile": ["24px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+"headline-md": ["24px", { lineHeight: "1.3", letterSpacing: "-0.01em", fontWeight: "600" }],
+"label-sm": ["12px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+"headline-lg": ["32px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }]
+}
+}
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+body {
+background-color: #0B0D17; /* Required by prompt */
+}
+.glass-card {
+border: 1px solid rgba(124, 106, 247, 0.15);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.primary-gradient-text {
+background: linear-gradient(to right, #4F46E5, #7C6AF7);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.primary-gradient-bg {
+background: linear-gradient(to right, #4F46E5, #7C6AF7);
+}
+.dotted-bg {
+background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+background-size: 24px 24px;
+}
+.glow-effect {
+box-shadow: 0 0 40px rgba(79, 70, 229, 0.2);
+}
+.flowing-line {
+stroke-dasharray: 20 40;
+animation: flow 4s linear infinite;
+}
+/* Flowing line animation */
+@keyframes flow {
+to {
+stroke-dashoffset: -400;
+}
+}
+@keyframes marquee {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+.marquee-content {
+display: flex;
+white-space: nowrap;
+animation: marquee 20s linear infinite;
+}
+/* Scroll Animation Utilities */
+will-change: opacity, transform;
+.fade-in-up.is-visible {
+opacity: 1;
+}
+.delay-200 { transition-delay: 200ms; }
+@media (prefers-reduced-motion: no-preference) {
+.animate-on-scroll {
+opacity: 0;
+transition-property: opacity, transform;
+transition-duration: 0.8s;
+transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in-up {
+transform: translateY(30px);
+}
+opacity: 1;
+transform: translateY(0);
+}
+.fade-in {
+/* no transform */
+}
+.fade-in.is-visible {
+}
+.scale-up {
+transform: scale(0.95);
+}
+.scale-up.is-visible {
+opacity: 1;
+transform: scale(1);
+}
+/* Staggering delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+}
+@media (prefers-reduced-motion: reduce) {
+.animate-on-scroll {
+opacity: 1 !important;
+transform: none !important;
+transition: none !important;
+}
+.flowing-line {
+animation: none;
+}
+}
+</style>
+</head>
+<body class="text-on-background font-body-md overflow-x-hidden relative min-h-screen dotted-bg">
+<div class="fixed inset-0 pointer-events-none z-[-1] dotted-bg opacity-30"></div>
+<!-- Navigation (TopNavBar) -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm border-b border-surface-variant">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+<a class="font-headline-md text-headline-md font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary" href="#">GoTrading</a>
+<div class="hidden md:flex gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Community</a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="#">Features</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">AI Analysis</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">How it Works</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-on-surface hover:opacity-80 transition-all duration-200 font-label-sm text-label-sm">Log In</button>
+<button class="primary-gradient-bg text-white px-6 py-2.5 rounded-full font-label-sm text-label-sm hover:opacity-80 transition-all duration-200 active:scale-95">Get Started</button>
+</div>
+</div>
+</nav>
+<!-- 1. HERO -->
+<section class="relative pt-40 pb-24 overflow-hidden min-h-[921px] flex flex-col justify-center">
+<!-- Abstract gradient orbs -->
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-container rounded-full mix-blend-screen filter blur-[100px] opacity-20 pointer-events-none"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-container rounded-full mix-blend-screen filter blur-[100px] opacity-20 pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-margin-desktop md:px-margin-desktop px-margin-mobile relative z-10">
+<div class="flex flex-col lg:flex-row items-center gap-12">
+<!-- Left: Typography -->
+<div class="w-full lg:w-1/2 flex flex-col items-start text-left">
+<div class="inline-flex items-center px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary-fixed mb-8 backdrop-blur-sm animate-on-scroll fade-in-up">
+<span class="material-symbols-outlined text-[16px] mr-2">show_chart</span>
+<span class="font-label-sm text-label-sm">GoTrading — Trading Platform</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-8 leading-tight animate-on-scroll fade-in-up delay-100">
+<span class="block text-white">Kamu Bukan Kalah</span>
+<span class="block text-white">Sama Market.</span>
+<span class="block primary-gradient-text">Kamu Kalah Sama Kesalahan yang Sama Berulang Kali.</span>
+<span class="block text-white">Dan Kamu Melawannya Sendirian.</span>
+</h1>
+<div class="flex flex-col sm:flex-row items-center gap-6 mt-4 animate-on-scroll fade-in-up delay-200">
+<button class="primary-gradient-bg text-white px-8 py-4 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-all active:scale-95 glow-effect w-full sm:w-auto text-center">
+Join Komunitas
+</button>
+<a class="text-secondary-fixed hover:text-white transition-colors flex items-center font-label-sm text-label-sm group" href="#">
+<span class="border-b border-transparent group-hover:border-secondary-fixed transition-colors">Cari Trader di Kotamu</span>
+<span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Right: Visual -->
+<div class="w-full lg:w-1/2 relative h-[500px] animate-on-scroll scale-up delay-300">
+<div class="absolute inset-0 rounded-2xl overflow-hidden glass-card glow-effect">
+<img class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRxcyB_KYNTeTJWhxi-sGKAsud1PYVLjE76VEz_t39JIN2J6dSxT2BMyPBQ_Iv9mN9wroDibaghQM__OXcsdGH3mRrC_qNHG45chjBrLuGdso67LpJdIHi6xnB6nM4gmvXKFzngrlXXk9PGaCP6fdNQcqjKfTyOfG5_jqqYOlfnzWRHIZXnxzdcDe7FoyQnBOtWS3jn8Y11YJIUxTMGzjUobF6yFvko9V2WoN9Y_CblvUQXxj3ad53Gw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0B0D17] to-transparent"></div>
+<!-- Floating UI Elements -->
+<div class="absolute bottom-8 left-8 right-8 bg-[#161B22]/90 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow-2xl">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<div class="text-white font-bold font-body-md text-body-md">Login to GoTrading</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm">Connect with your local community</div>
+</div>
+</div>
+<div class="h-10 bg-surface rounded-lg border border-white/5 w-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Marquee -->
+<div class="absolute bottom-0 left-0 w-full overflow-hidden bg-surface-container py-4 border-y border-white/5 backdrop-blur-sm z-20">
+<div class="marquee-content font-label-sm text-label-sm text-on-surface tracking-widest uppercase">
+<span class="mx-4">Learn Together • Trade Together •</span>
+<span class="mx-4">Learn Together • Trade Together •</span>
+<span class="mx-4">Learn Together • Trade Together •</span>
+<span class="mx-4">Learn Together • Trade Together •</span>
+<span class="mx-4">Learn Together • Trade Together •</span>
+<span class="mx-4">Learn Together • Trade Together •</span>
+<span class="mx-4">Learn Together • Trade Together •</span>
+<span class="mx-4">Learn Together • Trade Together •</span>
+</div>
+</div>
+</section>
+<!-- 2. 3 PILAR UTAMA -->
+<section class="py-24 px-margin-desktop md:px-margin-desktop px-margin-mobile relative">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg md:font-display-lg md:text-display-lg text-center max-w-3xl mx-auto mb-20 text-white animate-on-scroll fade-in-up">
+Platform trading yang benar-benar peduli sama trader di balik chart.
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 01 -->
+<div class="glass-card rounded-2xl p-8 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300 animate-on-scroll fade-in-up delay-100">
+<div class="absolute -right-4 -top-10 text-[180px] font-black text-white/[0.03] leading-none pointer-events-none select-none">01</div>
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
+<span class="material-symbols-outlined text-primary-fixed text-3xl">location_on</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-4 relative z-10">Find Local Traders</h3>
+<p class="text-on-surface-variant font-body-md text-body-md relative z-10">Temukan trader dengan style serupa di kotamu. Bangun koneksi nyata dan belajar dari pengalaman sesama trader lokal.</p>
+</div>
+<!-- Card 02 -->
+<div class="glass-card rounded-2xl p-8 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300 animate-on-scroll fade-in-up delay-200">
+<div class="absolute -right-4 -top-10 text-[180px] font-black text-white/[0.03] leading-none pointer-events-none select-none">02</div>
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
+<span class="material-symbols-outlined text-primary-fixed text-3xl">menu_book</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-4 relative z-10">Trading Journal</h3>
+<p class="text-on-surface-variant font-body-md text-body-md relative z-10">Sistem auto-log yang mencatat setiap trade. Review pola kemenanganmu dan hindari mengulang kesalahan yang sama.</p>
+</div>
+<!-- Card 03 -->
+<div class="glass-card rounded-2xl p-8 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300 glow-effect animate-on-scroll fade-in-up delay-300">
+<div class="absolute inset-0 primary-gradient-bg opacity-5 group-hover:opacity-10 transition-opacity"></div>
+<div class="absolute -right-4 -top-10 text-[180px] font-black text-white/[0.03] leading-none pointer-events-none select-none">03</div>
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/50 shadow-[0_0_15px_rgba(79,70,229,0.3)]">
+<span class="material-symbols-outlined text-primary-fixed text-3xl">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-4 relative z-10">AI Trading Coach</h3>
+<p class="text-on-surface-variant font-body-md text-body-md relative z-10">Insights otomatis dari data tradingmu. Mentor personal yang mendeteksi emosi dan bias sebelum kamu menyadarinya.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. NETWORK MAP -->
+<section class="py-24 relative overflow-hidden bg-surface-container-low border-y border-white/5">
+<div class="max-w-container-max mx-auto px-margin-desktop md:px-margin-desktop px-margin-mobile text-center relative z-10">
+<h2 class="font-headline-lg text-headline-lg md:font-display-lg md:text-display-lg mb-16 text-white max-w-4xl mx-auto animate-on-scroll fade-in-up">
+Trading sendirian itu nggak seharusnya jadi normal.
+</h2>
+<!-- Map Visual Container -->
+<div class="relative w-full h-[400px] md:h-[600px] mb-16 rounded-3xl overflow-hidden glass-card border-none animate-on-scroll scale-up delay-100">
+<div class="w-full h-full bg-cover bg-center opacity-70" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5oORVeYM8ifYHHkuwvUWXegwACvge29TUeqZoW-Ai5LXzrPT-YeSgEzi0eTX9fBDx9nJTddCVSqaThW-k8PGz38qypjSC6IgVwU3cxEL-_1K40E4owQpEPZNY5UlWNe-Y0q_280Y-2RxMVRgebTBmqRhy1IRZYjz4qNEUlwXiBxT4Cb9F6TCQAYgb1JLnZDxUN6lYKXxuQmyB6gtMjG4ykTsbN5CAGHdI4Ul2P3OR9InQRlNW3BDmtg')"></div>
+<!-- Add Animated SVG Lines Overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="xMidYMid slice" viewbox="0 0 1000 600">
+<defs>
+<lineargradient id="lineGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#4F46E5" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#7C6AF7" stop-opacity="0.2"></stop>
+</lineargradient>
+</defs>
+<!-- Sample abstract paths -->
+<path class="flowing-line" d="M 200 300 Q 300 200 450 350 T 700 250" fill="none" stroke="url(#lineGrad)" stroke-width="2"></path>
+<path class="flowing-line" d="M 300 400 Q 450 500 600 300 T 800 350" fill="none" stroke="url(#lineGrad)" stroke-width="2" style="animation-delay: 1s;"></path>
+<path class="flowing-line" d="M 150 200 Q 400 100 550 250 T 900 400" fill="none" stroke="url(#lineGrad)" stroke-width="1.5" style="animation-delay: 2s;"></path>
+<path class="flowing-line" d="M 400 350 Q 550 450 700 200 T 850 150" fill="none" stroke="url(#lineGrad)" stroke-width="2.5" style="animation-delay: 3s;"></path>
+</svg>
+<!-- Gradient overlay to blend edges -->
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#191b26_100%)]"></div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col items-center animate-on-scroll fade-in-up delay-100">
+<div class="text-4xl md:text-5xl font-black primary-gradient-text mb-2">45+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Cities</div>
+</div>
+<div class="flex flex-col items-center animate-on-scroll fade-in-up delay-200">
+<div class="text-4xl md:text-5xl font-black primary-gradient-text mb-2">12K</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Connected Traders</div>
+</div>
+<div class="flex flex-col items-center animate-on-scroll fade-in-up delay-300">
+<div class="text-4xl md:text-5xl font-black primary-gradient-text mb-2">50K</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Daily Discussions</div>
+</div>
+<div class="flex flex-col items-center animate-on-scroll fade-in-up delay-400">
+<div class="text-4xl md:text-5xl font-black primary-gradient-text mb-2">120</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Communities</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. BELAJAR & EDUKASI (Bento Grid) -->
+<section class="py-24 px-margin-desktop md:px-margin-desktop px-margin-mobile">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<h2 class="font-headline-lg text-headline-lg md:font-display-lg md:text-display-lg text-white max-w-2xl animate-on-scroll fade-in-up">
+Semua yang trader butuhkan untuk terus belajar setiap hari.
+</h2>
+<button class="px-6 py-2 rounded-full border border-primary/30 text-primary-fixed hover:bg-primary/10 transition-colors font-label-sm text-label-sm shrink-0 animate-on-scroll fade-in-up delay-100">
+View All Resources
+</button>
+</div>
+<!-- Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[240px]">
+<!-- Top Left -->
+<div class="md:col-span-4 glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-primary/50 transition-colors animate-on-scroll fade-in-up delay-100">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-secondary-fixed">feed</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary transition-colors">Daily Market News</h4>
+<p class="text-on-surface-variant font-body-sm text-sm">Berita esensial tanpa noise. Kurasi harian untuk persiapan trading.</p>
+</div>
+</div>
+<!-- Top Middle (Featured) -->
+<div class="md:col-span-4 glass-card rounded-2xl p-6 relative overflow-hidden group animate-on-scroll fade-in-up delay-200">
+<div class="absolute inset-0 primary-gradient-bg opacity-10"></div>
+<div class="relative z-10 flex flex-col justify-between h-full">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-primary-fixed">calendar_month</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Economic Calendar</h4>
+<p class="text-on-surface-variant font-body-sm text-sm">Notifikasi event penting dengan analisa dampak historis.</p>
+</div>
+</div>
+</div>
+<!-- Top Right -->
+<div class="md:col-span-4 glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-primary/50 transition-colors animate-on-scroll fade-in-up delay-300">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-secondary-fixed">monitoring</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary transition-colors">Technical Outlook</h4>
+<p class="text-on-surface-variant font-body-sm text-sm">Pemetaan zona penting & arah trend pasar.</p>
+</div>
+</div>
+<div class="md:col-span-7 glass-card rounded-2xl p-8 relative overflow-hidden flex flex-col justify-end animate-on-scroll fade-in-up delay-400">
+<img class="absolute right-0 top-0 w-1/2 h-full object-cover opacity-40 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZFzzl4r0PlbABMN4CE1ZFMy3wBx_QuqrbiAw5EnDKeZC70aBZ29x-NUAq-is4S5SWbu_KtjH_HshV9D8T61kgdFUn1XrMGZ2w1LS9EqDLSz_0keC-_Kw9wBEPRnSezSxnLnM0y4TlRwNWo48ocpY2pDekGd9Pl-wg1KlufdHkqdYcFM4Ntez8CIYMveUWlCtMooD5TJZXyI_uhlmfWLk6f6XFtfdNCkSWNx9yLFJ_tqp62MA"/>
+<div class="relative z-10 max-w-md">
+</div>
+<div class="inline-block px-3 py-1 bg-surface rounded-full border border-white/10 text-xs text-primary-fixed mb-4">Featured Course</div>
+<h4 class="font-headline-lg text-headline-lg text-white mb-2">Trading Psychology</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">Kuasai emosi sebelum menguasai market. Modul interaktif untuk disiplin.</p>
+</div>
+</div>
+<!-- Bottom Right -->
+<div class="md:col-span-5 glass-card rounded-2xl p-6 flex flex-col justify-between animate-on-scroll fade-in-up delay-500">
+<div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-primary-fixed">menu_book</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Educational Articles</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">Dari basic support/resistance hingga advance order flow.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. AI TRADING COACH DETAIL -->
+<section class="py-32 px-margin-desktop md:px-margin-desktop px-margin-mobile relative">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<!-- Left Content -->
+<div class="w-full lg:w-5/12">
+<h2 class="font-display-lg text-display-lg mb-8 primary-gradient-text">Mentor yang beneran baca jurnal tradingmu.</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg mb-8 animate-on-scroll fade-in-up delay-100">
+AI kami memproses ratusan data point dari setiap trademu untuk menemukan "blind spot" yang tidak kamu sadari. Bukan sekadar angka, tapi pemahaman pola.
+</p>
+<ul class="space-y-6 mb-10 animate-on-scroll fade-in-up delay-200">
+<li class="flex items-start">
+<span class="material-symbols-outlined text-primary-fixed mr-4 mt-1">check_circle</span>
+<div>
+<h4 class="text-white font-bold mb-1">Deteksi Pola Emosi</h4>
+<p class="text-on-surface-variant text-sm">Mengetahui kapan kamu cenderung overtrade setelah loss.</p>
+</div>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined text-primary-fixed mr-4 mt-1">check_circle</span>
+<div>
+<h4 class="text-white font-bold mb-1">Optimasi Risk:Reward</h4>
+<p class="text-on-surface-variant text-sm">Saran penyesuaian lot size berdasarkan win rate historis.</p>
+</div>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined text-primary-fixed mr-4 mt-1">check_circle</span>
+<div>
+<h4 class="text-white font-bold mb-1">Auto-Tagging Setup</h4>
+<p class="text-on-surface-variant text-sm">Mengkategorikan gaya trading yang paling menguntungkan untukmu.</p>
+</div>
+</li>
+</ul>
+<button class="primary-gradient-bg text-white px-8 py-3.5 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-all glow-effect animate-on-scroll fade-in-up delay-300">
+Coba AI Analysis Sekarang
+</button>
+</div>
+<!-- Right Visual (Dashboard Mockup) -->
+<div class="w-full lg:w-7/12">
+<div class="glass-card rounded-3xl p-6 md:p-8 relative glow-effect border-t-primary/30 animate-on-scroll scale-up delay-100">
+<!-- Top Bar Mockup -->
+<div class="flex justify-between items-center border-b border-white/5 pb-4 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed text-sm">smart_toy</span>
+</div>
+<span class="text-white font-bold text-sm">Coach Insight</span>
+</div>
+<span class="text-xs text-on-surface-variant bg-surface px-2 py-1 rounded">Live Update</span>
+</div>
+<!-- 3 Circular Stats -->
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="bg-surface-container rounded-xl p-4 text-center border border-white/5">
+<div class="relative w-16 h-16 mx-auto mb-2 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#282934" stroke-width="3"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#4F46E5" stroke-dasharray="68, 100" stroke-width="3"></path>
+</svg>
+<span class="absolute text-white font-bold text-sm">68%</span>
+</div>
+<div class="text-xs text-on-surface-variant">Win Rate</div>
+</div>
+<div class="bg-surface-container rounded-xl p-4 text-center border border-white/5">
+<div class="relative w-16 h-16 mx-auto mb-2 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#282934" stroke-width="3"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#7C6AF7" stroke-dasharray="1.5, 100" stroke-width="3"></path>
+</svg>
+<span class="absolute text-white font-bold text-sm">1:1.5</span>
+</div>
+<div class="text-xs text-on-surface-variant">Avg R:R</div>
+</div>
+<div class="bg-surface-container rounded-xl p-4 text-center border border-white/5">
+<div class="relative w-16 h-16 mx-auto mb-2 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#282934" stroke-width="3"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#c3c0ff" stroke-dasharray="92, 100" stroke-width="3"></path>
+</svg>
+<span class="absolute text-white font-bold text-sm">A</span>
+</div>
+<div class="text-xs text-on-surface-variant">Consistency</div>
+</div>
+</div>
+<!-- Insight Box -->
+<div class="bg-primary/10 rounded-xl p-5 border border-primary/20">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-fixed shrink-0 mt-1">warning</span>
+<div>
+<h5 class="text-white font-bold text-sm mb-2">Pola Bahaya Terdeteksi</h5>
+<p class="text-on-surface-variant text-sm leading-relaxed">Kamu cenderung membuka posisi baru 15 menit setelah cut loss di pair XAUUSD. Tingkat kemenangan di sesi balas dendam ini hanya 22%. Disarankan cooling down selama 2 jam.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface-container-low border-y border-white/5">
+<div class="max-w-container-max mx-auto px-margin-desktop md:px-margin-desktop px-margin-mobile text-center">
+<h2 class="font-display-lg text-display-lg mb-16 max-w-3xl mx-auto animate-on-scroll fade-in-up">
+<span class="block text-white">Percaya Diri. Pertemanan.</span>
+<span class="block primary-gradient-text">Konsisten.</span>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
+<!-- Testi 1 -->
+<div class="glass-card p-8 rounded-2xl relative animate-on-scroll fade-in-up delay-100">
+<span class="material-symbols-outlined text-4xl text-primary/20 absolute top-6 right-6">format_quote</span>
+<p class="text-on-surface-variant text-body-md mb-6 relative z-10">
+"Dulu sering banget overtrade karena emosi sendiri. Sejak pake jurnal AI di sini, gue sadar jam berapa aja gue sering ngawur. Ketemu temen-temen di regional Jakarta juga bikin makin disiplin."
+</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqWaEzLQi3TYMbs9mlnkOmHoBavkK-nGyjqHHH5B6ivWL0RhcsZhSqRPj8GBPMuUaaNTC3OdOmlGBKA_gkCuL0sjXh0-6PI0hZ7dOW4TWiN4YilgVP8C6X0-BqIuZIvMyDqwS0eIX7tyDOH9CzP2o1S7hA3mF09HwDsyzyknxRthfl7JMvz-PGQwQnuNSDGmoCVmfTA0mMn5aA7SJUPQj78maZdx_jftaCxcggfR5TSoP1Gdrmg5Q" alt="Portrait of a young Southeast Asian male professional trader"/>
+</div>
+<div>
+<div class="text-white font-bold text-sm">Bima S.</div>
+<div class="text-primary-fixed text-xs">Day Trader • Jakarta Raya</div>
+</div>
+</div>
+</div>
+<!-- Testi 2 -->
+<div class="glass-card p-8 rounded-2xl relative animate-on-scroll fade-in-up delay-200">
+<span class="material-symbols-outlined text-4xl text-primary/20 absolute top-6 right-6">format_quote</span>
+<p class="text-on-surface-variant text-body-md mb-6 relative z-10">
+"Fitur network map-nya luar biasa. Pas saya traveling ke luar kota, langsung ketemu trader lokal buat sharing setup dan market insight."
+</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqWaEzLQi3TYMbs9mlnkOmHoBavkK-nGyjqHHH5B6ivWL0RhcsZhSqRPj8GBPMuUaaNTC3OdOmlGBKA_gkCuL0sjXh0-6PI0hZ7dOW4TWiN4YilgVP8C6X0-BqIuZIvMyDqwS0eIX7tyDOH9CzP2o1S7hA3mF09HwDsyzyknxRthfl7JMvz-PGQwQnuNSDGmoCVmfTA0mMn5aA7SJUPQj78maZdx_jftaCxcggfR5TSoP1Gdrmg5Q" alt="Portrait of Nadia K."/>
+</div>
+<div>
+<div class="text-white font-bold text-sm">Nadia K.</div>
+<div class="text-primary-fixed text-xs">Swing Trader • Bandung</div>
+</div>
+</div>
+</div>
+<!-- Testi 3 -->
+<div class="glass-card p-8 rounded-2xl relative animate-on-scroll fade-in-up delay-300">
+<span class="material-symbols-outlined text-4xl text-primary/20 absolute top-6 right-6">format_quote</span>
+<p class="text-on-surface-variant text-body-md mb-6 relative z-10">
+"Jurnal auto-log itu lifesaver. Gak perlu lagi masukin data manual ke excel tiap malam. Coach AI ngasih feedback yang pas banget pas lagi drawdowns."
+</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyolw9tCgCilPSbIOFcNmwZPYI7bFNelNV2Z-kGjbhi__V_ksSRXD_ihNuEw5ojYM443v--fqYBnE9DWGhz89k2hROmUCkOZM7UZ8SvXsbXyNAnjwFcSCwbCtlJYEyIz99QkgXzC08mj8CkWw1Iq81GPNWNS4ALZ58DBr7brXinMV1U0FDCd9P2vtdfRMBRE1wmgazGOedtMzvw" alt="Portrait of mature male Southeast Asian financial analyst"/>
+</div>
+<div>
+<div class="text-white font-bold text-sm">Reza M.</div>
+<div class="text-primary-fixed text-xs">Scalper • Surabaya</div>
+</div>
+</div>
+</div>
+<!-- Testi 4 -->
+<div class="glass-card p-8 rounded-2xl relative animate-on-scroll fade-in-up delay-400">
+<span class="material-symbols-outlined text-4xl text-primary/20 absolute top-6 right-6">format_quote</span>
+<p class="text-on-surface-variant text-body-md mb-6 relative z-10">
+"Buat pemula kaya saya, materi edukasinya runtut. Bukan sekedar tebak-tebakan arah harga, tapi beneran diajarin fondasinya. Psikologi trading module is a masterpiece."
+</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyolw9tCgCilPSbIOFcNmwZPYI7bFNelNV2Z-kGjbhi__V_ksSRXD_ihNuEw5ojYM443v--fqYBnE9DWGhz89k2hROmUCkOZM7UZ8SvXsbXyNAnjwFcSCwbCtlJYEyIz99QkgXzC08mj8CkWw1Iq81GPNWNS4ALZ58DBr7brXinMV1U0FDCd9P2vtdfRMBRE1wmgazGOedtMzvw" alt="Portrait of Amelia D."/>
+</div>
+<div>
+<div class="text-white font-bold text-sm">Amelia D.</div>
+<div class="text-primary-fixed text-xs">Beginner • Yogyakarta</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. CLOSING CTA -->
+<section class="py-32 relative overflow-hidden">
+<div class="absolute inset-0 primary-gradient-bg opacity-10 mix-blend-screen pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-margin-desktop md:px-margin-desktop px-margin-mobile text-center relative z-10">
+<h2 class="font-display-lg text-display-lg md:text-[72px] font-black leading-none mb-10 primary-gradient-text animate-on-scroll fade-in-up">
+Nggak Pernah<br/>Dibangun Sendirian.</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl mx-auto mb-12 animate-on-scroll fade-in-up delay-100">
+Bergabunglah dengan ribuan trader yang telah menemukan circle mereka. Tingkatkan skill, disiplin, dan profitabilitasmu bersama komunitas.
+</p>
+<button class="primary-gradient-bg text-white px-10 py-5 rounded-full font-headline-sm text-headline-sm font-bold hover:opacity-90 transition-all duration-300 glow-effect inline-flex items-center gap-3 animate-on-scroll fade-in-up delay-200">
+Join Komunitas
+<span class="material-symbols-outlined">rocket_launch</span>
+</button>
+</div>
+</section>
+
+<!-- 8. FOOTER -->
+<footer class="w-full rounded-t-3xl bg-tertiary-fixed-dim dark:bg-on-tertiary-fixed grid grid-cols-1 md:grid-cols-4 gap-gutter py-stack-lg px-margin-desktop max-w-container-max mx-auto py-16">
+<!-- Logo & Tagline -->
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<span class="font-headline-sm text-headline-sm font-bold text-on-tertiary-fixed dark:text-tertiary-fixed">GoTrading</span>
+<p class="text-on-tertiary-fixed dark:text-tertiary-fixed text-sm leading-relaxed">
+Empowering local traders with AI-driven insights and real human connections.
+</p>
+<div class="flex gap-4 mt-4">
+<!-- Simple social circles -->
+<div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary/50 transition-colors cursor-pointer">
+<span class="text-tertiary-fixed text-xs font-bold">X</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary/50 transition-colors cursor-pointer">
+<span class="text-tertiary-fixed text-xs font-bold">IG</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary/50 transition-colors cursor-pointer">
+<span class="text-tertiary-fixed text-xs font-bold">YT</span>
+</div>
+</div>
+</div>
+<!-- L-->
+<div class="col-span-1 flex flex-col gap-3">
+<h5 class="text-tertiary-fixed font-bold text-sm mb-2">Platform</h5>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-primary transition-colors font-body-sm text-sm" href="#">Features</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-primary transition-colors font-body-sm text-sm" href="#">Pricing</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-primary transition-colors font-body-sm text-sm" href="#">Community</a>
+</div>
+<!-- Links Col 2 -->
+<div class="col-span-1 flex flex-col gap-3">
+<h5 class="text-tertiary-fixed font-bold text-sm mb-2">Company</h5>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-primary transition-colors font-body-sm text-sm" href="#">About Us</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-primary transition-colors font-body-sm text-sm" href="#">Careers</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-primary transition-colors font-body-sm text-sm" href="#">Blog</a>
+</div>
+<!-- Links Col 3 -->
+<div class="col-span-1 flex flex-col gap-4">
+<h5 class="text-tertiary-fixed font-bold text-sm mb-2">Stay Updated</h5>
+<p class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container text-xs mb-2">Dapatkan info terhangat seputar setup dan market.</p>
+<div class="flex gap-2">
+<input class="bg-surface/50 border border-white/20 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-primary w-full" placeholder="Enter your email" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-bold hover:opacity-90">Subscribe</button>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-white/10 text-center">
+<div class="flex flex-wrap justify-center gap-4 mb-4">
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-primary transition-colors text-xs" href="#">Privacy Policy</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-primary transition-colors text-xs" href="#">Terms of Service</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-primary transition-colors text-xs" href="#">Help</a>
+</div>
+<!-- Copyright Block from JSON -->
+<p class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container text-xs">
+© 2024 GoTrading. All rights reserved. Built for the community.
+</p>
+</div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+const observerOptions = {
+root: null,
+rootMargin: "0px 0px -50px 0px",
+threshold: 0.1
+};
+const observer = new IntersectionObserver((entries, obs) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('is-visible');
+obs.unobserve(entry.target);
+}
+});
+}, observerOptions);
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+observer.observe(el);
+});
+});
+</script>
+</body></html>
+

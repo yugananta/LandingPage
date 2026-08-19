@@ -1,0 +1,6 @@
+{
+  "name": "Trading Landing Page",
+  "description": "High-conversion trading community and education landing page",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
