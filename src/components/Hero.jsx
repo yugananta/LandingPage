@@ -262,7 +262,7 @@ export default function Hero() {
             </div>
 
             {/* Middle Content: Proportional Hoodie Image with Orbits */}
-            <div className="relative w-full flex-1 flex items-center justify-center min-h-0 py-1 my-1">
+            <div className="relative w-full flex-1 flex items-center justify-center min-h-0 pt-8 pb-2 my-1">
               
               {/* Orbit and Avatars container - proportional for mobile */}
               <div className="relative w-[250px] h-[250px] sm:w-[280px] sm:h-[280px] max-w-[78vw] aspect-square flex items-center justify-center origin-center">
@@ -365,11 +365,11 @@ export default function Hero() {
                   </div>
                 ))}
 
-                {/* Hoodie Avatar - scaled down 25% for perfect proportion and safe spacing */}
+                {/* Hoodie Avatar - Enlarged and pushed lower to prevent touching text above */}
                 <img 
                   src="/human.png" 
                   alt="Trader in hoodie" 
-                  className="absolute bottom-0 w-[78%] h-[88%] object-contain object-bottom z-10 scale-[1.32] translate-y-[24px] origin-bottom filter drop-shadow-[0_20px_45px_rgba(99,102,241,0.45)]"
+                  className="absolute bottom-0 w-[82%] h-[92%] object-contain object-bottom z-10 scale-[1.5] translate-y-[40px] origin-bottom filter drop-shadow-[0_20px_45px_rgba(99,102,241,0.45)]"
                   style={{
                     WebkitMaskImage: 'linear-gradient(to bottom, black 45%, transparent 94%)',
                     maskImage: 'linear-gradient(to bottom, black 45%, transparent 94%)'

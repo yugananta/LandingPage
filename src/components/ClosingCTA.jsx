@@ -29,13 +29,7 @@ export default function ClosingCTA() {
           </div>
         </div>
 
-        {/* Section title */}
-        <div className="mb-6 animate-on-scroll fade-in-up delay-100">
-          <span className="text-white/40 text-xs font-bold uppercase tracking-widest block mb-2">START YOUR CONSISTENT JOURNEY</span>
-          <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight">
-            Still Undecided? Try GoTrading Today
-          </h2>
-        </div>
+
 
         {/* ─── BLUE-PURPLE GRADIENT CARD ─── */}
         <div className="rounded-2xl bg-gradient-to-r from-[#7c3aed] via-[#5c52eb] to-[#2563eb] p-6 md:p-8 text-center relative overflow-hidden group hover:shadow-xl hover:shadow-indigo-500/20 transition-all duration-300 animate-on-scroll scale-up delay-200">

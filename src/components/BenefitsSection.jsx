@@ -31,45 +31,45 @@ export default function BenefitsSection() {
   };
 
   return (
-    <section className="py-12 lg:py-16 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-[#1a1c29] relative overflow-hidden border-t border-white/5">
+    <section className="py-12 lg:py-16 bg-[#1a1c29] relative overflow-hidden border-t border-white/5">
       
       {/* Background glow ambient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-container-max mx-auto relative z-10">
+      {/* TOP SECTION: Full Width Video (Edge-to-Edge, NO PADDING AT ALL) */}
+      <div className="w-full mb-12 animate-on-scroll scale-up">
+        <div className="relative w-full aspect-[16/9] md:aspect-[2.4/1] overflow-hidden border-y border-white/10 shadow-2xl bg-[#222436] flex items-center justify-center group">
+          
+          {/* HTML5 Video */}
+          <video
+            ref={videoRef}
+            src="/vidio/WhatsApp Video 2026-08-18 at 13.11.15.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+
+          {/* Mute/Unmute Overlay Button */}
+          <button 
+            onClick={toggleMute}
+            className="absolute top-6 right-6 z-20 w-12 h-12 rounded-full bg-black/60 hover:bg-black/80 border border-white/15 text-white flex items-center justify-center transition-all duration-300 active:scale-95 shadow-lg backdrop-blur-sm"
+            title={isMuted ? "Unmute video" : "Mute video"}
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {isMuted ? 'volume_off' : 'volume_up'}
+            </span>
+          </button>
+
+          {/* Video Decorative Gradient Cover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+        </div>
+      </div>
+
+      <div className="max-w-container-max mx-auto relative z-10 px-margin-desktop md:px-margin-desktop px-margin-mobile">
         <div className="flex flex-col gap-8 items-center">
           
-          {/* TOP SECTION: Full Width Video */}
-          <div className="w-full max-w-[860px] animate-on-scroll scale-up">
-            <div className="relative w-full aspect-[16/9] md:aspect-[2.4/1] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#222436] flex items-center justify-center group">
-              
-              {/* HTML5 Video */}
-              <video
-                ref={videoRef}
-                src="/vidio/WhatsApp Video 2026-08-18 at 13.11.15.mp4"
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-
-              {/* Mute/Unmute Overlay Button */}
-              <button 
-                onClick={toggleMute}
-                className="absolute top-6 right-6 z-20 w-12 h-12 rounded-full bg-black/60 hover:bg-black/80 border border-white/15 text-white flex items-center justify-center transition-all duration-300 active:scale-95 shadow-lg backdrop-blur-sm"
-                title={isMuted ? "Unmute video" : "Mute video"}
-              >
-                <span className="material-symbols-outlined text-2xl">
-                  {isMuted ? 'volume_off' : 'volume_up'}
-                </span>
-              </button>
-
-              {/* Video Decorative Gradient Cover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-            </div>
-          </div>
-
           {/* BOTTOM SECTION: Benefits Text Content */}
           <div className="w-full max-w-[960px] flex flex-col gap-6 text-center items-center animate-on-scroll fade-in-up">
             

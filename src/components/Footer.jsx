@@ -9,10 +9,10 @@ export default function Footer() {
           <img
             src="/logo.png"
             alt="GoTrading"
-            className="h-12 w-auto max-w-[180px] object-contain transition-opacity duration-300 -ml-[25px]"
+            className="h-12 w-auto max-w-[180px] object-contain transition-opacity duration-300 -ml-[18px]"
           />
         </div>
-        <p className="text-gray-400 text-sm leading-relaxed mt-[-8px]">
+        <p className="text-gray-400 text-sm leading-relaxed mt-[-4px]">
           Empowering local traders with AI-driven insights and real human connections.
         </p>
         <div className="flex gap-4 mt-4">
