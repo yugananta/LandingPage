@@ -243,10 +243,10 @@ export default function Hero() {
           </div>
 
           {/* MOBILE & TABLET LAYOUT (lg:hidden) */}
-          <div className="lg:hidden flex flex-col justify-between h-full w-full pt-10 pb-4 px-4 relative z-10">
+          <div className="lg:hidden flex flex-col justify-between h-full w-full pt-4 pb-4 px-4 relative z-10 gap-3">
             
             {/* Top content: Tagline Headline */}
-            <div className="flex flex-col items-center text-center mt-0 animate-fade-in-up">
+            <div className="flex flex-col items-center text-center mt-0 animate-fade-in-up z-20">
               <h1 className="text-xl sm:text-2xl font-extrabold leading-[1.35] tracking-tight text-white max-w-sm">
                 You're Not Losing<br />
                 To The Market.<br />
@@ -261,14 +261,14 @@ export default function Hero() {
               </h1>
             </div>
 
-            {/* Middle Content: Large Hoodie Image with Orbits */}
-            <div className="relative w-full flex-1 flex items-end justify-center min-h-0 py-2">
+            {/* Middle Content: Proportional Hoodie Image with Orbits */}
+            <div className="relative w-full flex-1 flex items-center justify-center min-h-0 py-1 my-1">
               
-              {/* Orbit and Avatars container - square to match desktop SVG path scale */}
-              <div className="relative w-[250px] h-[250px] max-w-[75vw] aspect-square flex items-center justify-center scale-[1.02] origin-center -mb-8">
+              {/* Orbit and Avatars container - proportional for mobile */}
+              <div className="relative w-[250px] h-[250px] sm:w-[280px] sm:h-[280px] max-w-[78vw] aspect-square flex items-center justify-center origin-center">
                 
                 {/* Background glowing circle and orbits */}
-                <div className="absolute inset-4 rounded-full bg-gradient-to-br from-indigo-600/20 to-violet-600/10 border border-indigo-500/20 flex items-center justify-center p-4">
+                <div className="absolute inset-2 rounded-full bg-gradient-to-br from-indigo-600/20 to-violet-600/10 border border-indigo-500/20 flex items-center justify-center p-4">
                   {/* Decorative orbit rings */}
                   <div className="absolute inset-2 border border-white/5 rounded-full animate-[spin_40s_linear_infinite]" />
                   <div className="absolute inset-8 border border-indigo-500/10 border-dashed rounded-full" />
@@ -352,7 +352,7 @@ export default function Hero() {
                 {COMMUNITY_AVATARS.map((avatar, idx) => (
                   <div 
                     key={idx} 
-                    className={`absolute ${avatar.posClass} ${avatar.animClass} z-20 w-12 h-12 rounded-full p-[1.5px] bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 shadow-[0_0_10px_rgba(168,85,247,0.35)]`}
+                    className={`absolute ${avatar.posClass} ${avatar.animClass} z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full p-[1.5px] bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 shadow-[0_0_10px_rgba(168,85,247,0.35)]`}
                   >
                     <div className="w-full h-full rounded-full overflow-hidden border border-[#1a1c29] bg-[#1a1c29] relative">
                       <img 
@@ -365,14 +365,14 @@ export default function Hero() {
                   </div>
                 ))}
 
-                {/* Hoodie Avatar with fade-out mask */}
+                {/* Hoodie Avatar - scaled proportionally without overlapping headline */}
                 <img 
                   src="/human.png" 
                   alt="Trader in hoodie" 
-                  className="absolute bottom-0 w-[75%] h-[90%] object-contain object-bottom z-10 scale-[1.2] origin-bottom filter drop-shadow-[0_20px_50px_rgba(99,102,241,0.35)]"
+                  className="absolute bottom-0 w-[78%] h-[88%] object-contain object-bottom z-10 scale-[1.12] origin-bottom filter drop-shadow-[0_20px_40px_rgba(99,102,241,0.35)]"
                   style={{
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)',
-                    maskImage: 'linear-gradient(to bottom, black 50%, transparent 95%)'
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 96%)',
+                    maskImage: 'linear-gradient(to bottom, black 50%, transparent 96%)'
                   }}
                 />
 

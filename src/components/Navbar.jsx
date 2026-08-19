@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
+const LANGUAGES = [
+  { code: 'EN', flag: '🇬🇧', label: 'English' },
+  { code: 'ID', flag: '🇮🇩', label: 'Bahasa Indonesia' },
+  { code: 'VI', flag: '🇻🇳', label: 'Tiếng Việt' },
+  { code: 'TH', flag: '🇹🇭', label: 'ภาษาไทย' }
+];
+
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
+  const [langOpen, setLangOpen] = useState(false);
+
   useEffect(() => {
     document.documentElement.classList.add('dark');
     localStorage.setItem('theme', 'dark');
@@ -45,8 +54,8 @@ export default function Navbar() {
           </a>
         </div>
         
-        {/* Buttons / hamburger toggle */}
-        <div className="flex items-center gap-2 md:gap-4">
+        {/* Buttons / language selector */}
+        <div className="flex items-center gap-2.5 md:gap-4 relative">
           <a 
             href="https://my.gotrading.id/"
             className="hidden md:block text-on-surface hover:opacity-80 transition-all duration-200 font-label-sm text-label-sm"
@@ -61,64 +70,64 @@ export default function Navbar() {
             Get Started
           </a>
           
-          {/* Mobile Sign In button */}
+          {/* Mobile Sign In button (30% smaller) */}
           <a 
             href="https://my.gotrading.id/"
-            className="md:hidden primary-gradient-bg text-white px-4 py-2 rounded-full font-bold text-xs hover:opacity-90 transition-all shadow-md active:scale-95 flex items-center gap-1"
+            className="md:hidden primary-gradient-bg text-white px-2.5 py-1.5 rounded-full font-bold text-[10px] hover:opacity-90 transition-all shadow-sm active:scale-95 flex items-center gap-0.5"
           >
-            <span className="material-symbols-outlined text-sm">login</span>
+            <span className="material-symbols-outlined text-[12px]">login</span>
             Sign In
           </a>
 
-          <button 
-            className="md:hidden text-on-surface focus:outline-none ml-1"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <span className="material-symbols-outlined text-2xl">{isOpen ? 'close' : 'menu'}</span>
-          </button>
-        </div>
-      </div>
-      
-      {/* Mobile nav drawer */}
-      {isOpen && (
-        <div className="md:hidden bg-gradient-to-b from-[#1a1c29]/98 to-[#13141f]/98 border-b border-indigo-500/10 flex flex-col items-start gap-4 p-6 w-full animate-on-scroll is-visible">
-          <a className="text-on-surface-variant hover:text-primary transition-colors font-body-md w-full" href="#features" onClick={() => setIsOpen(false)}>
-            Features
-          </a>
-          <a className="text-on-surface-variant hover:text-primary transition-colors font-body-md w-full" href="#community" onClick={() => setIsOpen(false)}>
-            Community
-          </a>
-          <a className="text-on-surface-variant hover:text-primary transition-colors font-body-md w-full" href="#how-it-works" onClick={() => setIsOpen(false)}>
-            How it Works
-          </a>
-          <a className="text-on-surface-variant hover:text-primary transition-colors font-body-md w-full" href="#ai-coach" onClick={() => setIsOpen(false)}>
-            AI Coach
-          </a>
-          <a className="text-on-surface-variant hover:text-primary transition-colors font-body-md w-full" href="#pricing" onClick={() => setIsOpen(false)}>
-            Pricing
-          </a>
-          <a className="text-on-surface-variant hover:text-primary transition-colors font-body-md w-full" href="#faq" onClick={() => setIsOpen(false)}>
-            FAQ
-          </a>
-          <div className="w-full flex flex-col gap-2 pt-2">
-            <a 
-              href="https://my.gotrading.id/"
-              className="text-on-surface hover:opacity-80 transition-all duration-200 font-label-sm text-label-sm border border-on-surface/10 rounded-full w-full py-2 text-center block" 
-              onClick={() => setIsOpen(false)}
+          {/* Language Flag selector dropdown */}
+          <div className="relative">
+            <button 
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-200"
+              onClick={() => setLangOpen(!langOpen)}
+              aria-label="Select language"
             >
-              Log In
-            </a>
-            <a 
-              href="https://my.gotrading.id/"
-              className="primary-gradient-bg text-white font-label-sm text-label-sm rounded-full w-full py-2.5 text-center block hover:opacity-80 transition-all duration-200 active:scale-95" 
-              onClick={() => setIsOpen(false)}
-            >
-              Get Started
-            </a>
+              <span className="text-base leading-none">{selectedLang.flag}</span>
+              <span className="text-[10px] font-bold text-gray-300 uppercase">{selectedLang.code}</span>
+              <span className="material-symbols-outlined text-[12px] text-gray-400">keyboard_arrow_down</span>
+            </button>
+
+            {/* Language Dropdown List - positioned perfectly below header so it doesn't cover it */}
+            {langOpen && (
+              <>
+                <div 
+                  className="fixed inset-0 z-40" 
+                  onClick={() => setLangOpen(false)} 
+                />
+                <div className="absolute right-0 top-full mt-3 w-[220px] rounded-2xl bg-[#edf2f9] border border-slate-200/80 shadow-2xl py-2 px-1.5 z-50 text-left animate-on-scroll is-visible scale-up">
+                  {LANGUAGES.map((lang) => {
+                    const isSelected = lang.code === selectedLang.code;
+                    return (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          setSelectedLang(lang);
+                          setLangOpen(false);
+                        }}
+                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-150 text-left ${
+                          isSelected 
+                            ? 'bg-blue-100/70 text-indigo-950 font-bold' 
+                            : 'hover:bg-slate-100 text-slate-700'
+                        }`}
+                      >
+                        <span className="text-xl leading-none">{lang.flag}</span>
+                        <span className="text-xs text-slate-400 font-bold w-5">{lang.code}</span>
+                        <span className={`text-sm ${isSelected ? 'text-indigo-800 font-extrabold' : 'text-slate-800 font-medium'}`}>
+                          {lang.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
