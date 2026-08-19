@@ -92,7 +92,7 @@ export default function Hero() {
           {/* DESKTOP LAYOUT (hidden lg:grid) */}
           <div className="hidden lg:grid grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Tagline Content */}
-            <div className="lg:col-span-7 flex flex-col gap-4 lg:gap-6 items-start text-left animate-on-scroll fade-in-up py-16">
+            <div className="lg:col-span-7 flex flex-col gap-4 lg:gap-6 items-start text-left animate-on-scroll fade-in-up pt-28 pb-16 lg:mt-6">
               
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold uppercase tracking-widest w-fit">
@@ -246,7 +246,7 @@ export default function Hero() {
           <div className="lg:hidden flex flex-col justify-between h-full w-full pt-4 pb-4 px-4 relative z-10 gap-3">
             
             {/* Top content: Tagline Headline */}
-            <div className="flex flex-col items-center text-center mt-0 animate-fade-in-up z-20">
+            <div className="flex flex-col items-center text-center mt-6 sm:mt-10 animate-fade-in-up z-20">
               <h1 className="text-xl sm:text-2xl font-extrabold leading-[1.35] tracking-tight text-white max-w-sm">
                 You're Not Losing<br />
                 To The Market.<br />

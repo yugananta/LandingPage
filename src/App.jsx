@@ -9,7 +9,6 @@ import NewsSection from './components/NewsSection';
 import IntegratedFeatures from './components/IntegratedFeatures';
 import LearnGrowSection from './components/LearnGrowSection';
 import LearnSection from './components/LearnSection';
-import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import ClosingCTA from './components/ClosingCTA';
 import Footer from './components/Footer';
@@ -58,7 +57,6 @@ function App() {
         <NewsSection />
         <IntegratedFeatures />
         <LearnGrowSection />
-        <Testimonials />
         <FAQ />
         <ClosingCTA />
       </main>
