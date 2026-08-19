@@ -5,11 +5,13 @@ export default function Footer() {
     <footer className="w-full rounded-t-3xl bg-[#141522] border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-gutter py-16 px-margin-desktop max-w-container-max mx-auto text-left">
       {/* Logo & Tagline */}
       <div className="col-span-1 flex flex-col gap-4">
-         <img
+        <div className="h-16 flex items-center">
+          <img
             src="/logo.png"
             alt="GoTrading"
-            className="h-16 w-auto object-contain transition-opacity duration-300"
+            className="h-full w-auto max-w-[180px] object-contain transition-opacity duration-300"
           />
+        </div>
         <p className="text-gray-400 text-sm leading-relaxed">
           Empowering local traders with AI-driven insights and real human connections.
         </p>
@@ -26,7 +28,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
+
       {/* Platform Column */}
       <div className="col-span-1 flex flex-col gap-3">
         <h5 className="text-white font-bold text-sm mb-2">Platform</h5>
@@ -34,7 +36,7 @@ export default function Footer() {
         <a className="text-gray-400 hover:text-primary transition-colors font-body-sm text-sm" href="#">Pricing</a>
         <a className="text-gray-400 hover:text-primary transition-colors font-body-sm text-sm" href="#">Community</a>
       </div>
-      
+
       {/* Company Column */}
       <div className="col-span-1 flex flex-col gap-3">
         <h5 className="text-white font-bold text-sm mb-2">Company</h5>
@@ -42,7 +44,7 @@ export default function Footer() {
         <a className="text-gray-400 hover:text-primary transition-colors font-body-sm text-sm" href="#">Careers</a>
         <a className="text-gray-400 hover:text-primary transition-colors font-body-sm text-sm" href="#">Blog</a>
       </div>
-      
+
       {/* Bottom Copyright Block */}
       <div className="col-span-1 md:col-span-3 mt-8 pt-8 border-t border-white/5 text-center">
         <div className="flex flex-wrap justify-center gap-4 mb-4">
