@@ -5,7 +5,11 @@ export default function Footer() {
     <footer className="w-full rounded-t-3xl bg-[#141522] border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-gutter py-16 px-margin-desktop max-w-container-max mx-auto text-left">
       {/* Logo & Tagline */}
       <div className="col-span-1 flex flex-col gap-4">
-        <span className="font-headline-sm text-headline-sm font-bold text-white">GoTrading</span>
+         <img
+            src="/logo.png"
+            alt="GoTrading"
+            className="h-16 w-auto object-contain transition-opacity duration-300"
+          />
         <p className="text-gray-400 text-sm leading-relaxed">
           Empowering local traders with AI-driven insights and real human connections.
         </p>
