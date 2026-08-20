@@ -76,32 +76,30 @@ export default function LearnSection() {
     return (
       <div 
         key={f.title}
-        className="p-6 md:p-8 rounded-3xl bg-surface-container-low border border-surface-variant/15 hover:border-primary/30 transition-all duration-300 group flex flex-col justify-between h-full text-left animate-on-scroll fade-in-up"
+        className="p-5 rounded-2xl bg-surface-container-low border border-surface-variant/15 hover:border-primary/30 transition-all duration-300 group flex gap-4 items-start text-left animate-on-scroll fade-in-up"
       >
+        <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+          <span className="material-symbols-outlined text-primary-fixed text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>
+            {f.icon}
+          </span>
+        </div>
         <div>
-          <div className="flex items-center justify-between mb-4">
-            <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <span className="material-symbols-outlined text-primary-fixed text-xl" style={{ fontVariationSettings: '"FILL" 1' }}>
-                {f.icon}
-              </span>
-            </div>
-            <span className="text-[9px] font-extrabold uppercase px-2.5 py-0.5 rounded-full border bg-violet-500/10 text-violet-400 border-violet-500/20">
-              AI Psychology
-            </span>
-          </div>
-          
-          <h3 className="text-on-surface font-black text-lg mb-2">{f.title}</h3>
-          <p className="text-on-surface-variant text-sm leading-relaxed">{f.desc}</p>
+          <h3 className="text-on-surface font-bold text-base mb-1 tracking-tight">{f.title}</h3>
+          <p className="text-on-surface-variant text-xs md:text-sm leading-relaxed mb-2.5">{f.desc}</p>
+          <span className="text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-full border bg-violet-500/10 text-violet-400 border-violet-500/20 inline-block">
+            AI Psychology
+          </span>
         </div>
       </div>
     );
   };
 
   return (
-    <section id="ai-coach" className="pt-6 pb-16 lg:pt-8 lg:pb-24 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-background relative overflow-hidden">
-      {/* Ambient glows */}
-      <div className="absolute top-1/3 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[100px] pointer-events-none" />
+    <>
+      <section id="ai-coach" className="pt-6 pb-16 lg:pt-8 lg:pb-24 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-background relative overflow-hidden">
+        {/* Ambient glows */}
+        <div className="absolute top-1/3 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-container-max mx-auto relative z-10">
         
@@ -368,61 +366,6 @@ export default function LearnSection() {
 
         </div>
 
-        {/* ── SEAMLESS DIVISION: COLLABORATIVE LEARNING ── */}
-        <div className="mt-24 pt-20 border-t border-surface-variant/10 animate-on-scroll fade-in-up">
-          
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[10px] font-bold uppercase tracking-widest mb-5">
-              <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>school</span>
-              COLLABORATIVE LEARNING
-            </div>
-
-            <h2 className="font-display-lg text-3xl md:text-5xl font-black text-on-background mb-4 leading-tight">
-              Learn and <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-indigo-300 bg-clip-text text-transparent">Grow Together</span>.
-            </h2>
-
-            <p className="text-on-surface-variant font-body-md text-base leading-relaxed">
-              Connect with serious traders, share verified trading setup ideas, and support each other to build long-term consistency.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            {[
-              {
-                title: 'Local Study Partners',
-                desc: 'Find dedicated trade study partners in your city, or connect with global peers who share your style.',
-                icon: 'groups'
-              },
-              {
-                title: 'Setup Sharing',
-                desc: 'Share setups directly from your AI-audited journal to get real mathematical feedback from the community.',
-                icon: 'share'
-              },
-              {
-                title: 'Habit Accountability',
-                desc: 'It is not a competition; we support each other to eliminate mental blocks and master trading discipline.',
-                icon: 'trending_up'
-              }
-            ].map((col, idx) => (
-              <div 
-                key={idx}
-                className="p-6 md:p-8 rounded-3xl bg-surface-container-low border border-surface-variant/15 hover:border-primary/30 transition-all duration-300 group flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/15 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors mb-5">
-                    <span className="material-symbols-outlined text-indigo-400 text-xl" style={{ fontVariationSettings: '"FILL" 1' }}>
-                      {col.icon}
-                    </span>
-                  </div>
-                  <h3 className="text-on-surface font-extrabold text-lg mb-2 tracking-tight">{col.title}</h3>
-                  <p className="text-on-surface-variant text-sm leading-relaxed">{col.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-
         {/* Action Button */}
         <div className="mt-16 flex justify-center">
           <a href="https://my.gotrading.id/" className="primary-gradient-bg text-white px-9 py-4 rounded-full font-bold text-sm hover:opacity-90 transition-all shadow-xl shadow-primary/25 inline-flex items-center gap-2">
@@ -433,5 +376,63 @@ export default function LearnSection() {
 
       </div>
     </section>
+
+    {/* ── COLLABORATIVE LEARNING (LIGHT MODE) ── */}
+    <section className="py-16 lg:py-24 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-white relative overflow-hidden border-t border-slate-200/60">
+      <div className="max-w-container-max mx-auto relative z-10 animate-on-scroll fade-in-up">
+        
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-200 bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase tracking-widest mb-5">
+            <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>school</span>
+            COLLABORATIVE LEARNING
+          </div>
+
+          <h2 className="font-display-lg text-3xl md:text-5xl font-black text-slate-900 mb-4 leading-tight">
+            Learn and <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Grow Together</span>.
+          </h2>
+
+          <p className="text-slate-500 font-body-md text-base leading-relaxed">
+            Connect with serious traders, share verified trading setup ideas, and support each other to build long-term consistency.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          {[
+            {
+              title: 'Local Study Partners',
+              desc: 'Find dedicated trade study partners in your city, or connect with global peers who share your style.',
+              icon: 'groups'
+            },
+            {
+              title: 'Setup Sharing',
+              desc: 'Share setups directly from your AI-audited journal to get real mathematical feedback from the community.',
+              icon: 'share'
+            },
+            {
+              title: 'Habit Accountability',
+              desc: 'It is not a competition; we support each other to eliminate mental blocks and master trading discipline.',
+              icon: 'trending_up'
+            }
+          ].map((col, idx) => (
+            <div 
+              key={idx}
+              className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-indigo-500/30 hover:shadow-md transition-all duration-300 group flex gap-4 items-start text-left"
+            >
+              <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center group-hover:bg-indigo-600 group-hover:border-indigo-600 transition-colors shrink-0">
+                <span className="material-symbols-outlined text-indigo-600 group-hover:text-white text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>
+                  {col.icon}
+                </span>
+              </div>
+              <div>
+                <h3 className="text-slate-900 font-bold text-base mb-1 tracking-tight">{col.title}</h3>
+                <p className="text-slate-500 text-xs md:text-sm leading-relaxed">{col.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+    </>
   );
 }

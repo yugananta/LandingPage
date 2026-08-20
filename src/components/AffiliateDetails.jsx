@@ -45,9 +45,11 @@ export default function AffiliateDetails() {
   }, []);
 
   const targetEarnings = tradeCount * selectedMetric.rate;
+  const currentEarningsRef = React.useRef(displayEarnings);
+  currentEarningsRef.current = displayEarnings;
 
   useEffect(() => {
-    let start = displayEarnings;
+    let start = currentEarningsRef.current;
     const end = targetEarnings;
     if (start === end) return;
 

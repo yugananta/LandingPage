@@ -1,11 +1,5 @@
 import React from 'react';
-
-const FeaturesRow = [
-  { icon: 'groups', title: 'FIND PARTNERS', desc: 'Traders in your city' },
-  { icon: 'forum', title: 'DISCUSS STRATEGIES', desc: 'Share analysis & setups' },
-  { icon: 'diversity_3', title: 'LOCAL HUBS', desc: 'Offline meetups & gatherings' },
-  { icon: 'trending_up', title: 'GROW TOGETHER', desc: 'No more trading alone' },
-];
+import { ArrowRight } from 'lucide-react';
 
 const COMMUNITY_AVATARS = [
   { 
@@ -115,8 +109,8 @@ export default function Hero() {
                   href="https://my.gotrading.id/"
                   className="px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-indigo-500/20 inline-flex items-center gap-2"
                 >
-                  Join a Community
-                  <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  <span>Join a Community</span>
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </a>
               </div>
             </div>
@@ -392,8 +386,8 @@ export default function Hero() {
                 href="https://my.gotrading.id/"
                 className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-2 transition-all duration-300"
               >
-                Join a Community!
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <span>Join a Community!</span>
+                <ArrowRight className="w-4 h-4 shrink-0" />
               </a>
             </div>
 

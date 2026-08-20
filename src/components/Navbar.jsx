@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LogIn } from 'lucide-react';
 
 const LANGUAGES = [
   { code: 'EN', flag: '🇬🇧', label: 'English' },
@@ -73,10 +74,10 @@ export default function Navbar() {
           {/* Mobile Sign In button (Another 30% smaller) */}
           <a 
             href="https://my.gotrading.id/"
-            className="md:hidden primary-gradient-bg text-white px-1.5 py-1 rounded-full font-extrabold text-[8px] tracking-wide hover:opacity-90 transition-all shadow-sm active:scale-95 flex items-center gap-0.5"
+            className="md:hidden primary-gradient-bg text-white px-2 py-1 rounded-full font-extrabold text-[9px] tracking-wide hover:opacity-90 transition-all shadow-sm active:scale-95 flex items-center gap-1 shrink-0"
           >
-            <span className="material-symbols-outlined text-[10px]">login</span>
-            Sign In
+            <LogIn className="w-2.5 h-2.5" />
+            <span>Sign In</span>
           </a>
 
           {/* Language Flag selector dropdown */}
