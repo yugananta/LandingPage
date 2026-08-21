@@ -42,7 +42,38 @@ const COMBINED_FEATURES = [
 export default function LearnSection() {
   const [activeTab, setActiveTab] = useState('all'); // 'all', 'progress', 'psychology'
 
-  const renderFeatureCard = (f) => {
+  const renderCompactSquareCard = (f) => {
+    if (!f) return null;
+    return (
+      <div 
+        key={f.title}
+        className="p-3.5 sm:p-4 md:p-5 rounded-2xl bg-surface-container-low border border-surface-variant/15 hover:border-primary/30 transition-all duration-300 group flex flex-col md:flex-row justify-between md:justify-start gap-2 md:gap-4 items-start text-left h-full animate-on-scroll fade-in-up"
+      >
+        <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+          <span className="material-symbols-outlined text-primary-fixed text-base md:text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>
+            {f.icon}
+          </span>
+        </div>
+        <div className="flex flex-col justify-between h-full md:h-auto md:block flex-1">
+          <div>
+            <h3 className="text-on-surface font-extrabold md:font-bold text-xs sm:text-sm md:text-base mb-1 tracking-tight leading-tight md:leading-normal">{f.title}</h3>
+            <p className="text-on-surface-variant text-[10px] sm:text-xs md:text-sm leading-relaxed mb-2 md:mb-2.5 line-clamp-3 sm:line-clamp-4 md:line-clamp-none">{f.desc}</p>
+          </div>
+          <div>
+            <span className={`text-[7.5px] sm:text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-full border inline-block ${
+              f.category === 'progress' 
+                ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' 
+                : 'bg-violet-500/10 text-violet-400 border-violet-500/20'
+            }`}>
+              {f.category === 'progress' ? 'Progress' : 'AI Psychology'}
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const renderNormalCard = (f) => {
     if (!f) return null;
     return (
       <div 
@@ -68,11 +99,6 @@ export default function LearnSection() {
       </div>
     );
   };
-
-  const filteredFeatures = COMBINED_FEATURES.filter((f) => {
-    if (activeTab === 'all') return true;
-    return f.category === activeTab;
-  });
 
   return (
     <>
@@ -302,8 +328,48 @@ export default function LearnSection() {
         </div>
 
         {/* ── COMBINED FEATURES LIST ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {filteredFeatures.map((f) => renderFeatureCard(f))}
+        <div className="flex flex-col gap-3 md:gap-6">
+          
+          {/* Pair 1: Automatic Trade Logging & Progress & Statistics (2 small square cards side-by-side on mobile, 2 columns on desktop) */}
+          {(activeTab === 'all' || activeTab === 'progress') && (
+            <div className="grid grid-cols-2 gap-3 md:gap-6">
+              {renderCompactSquareCard(COMBINED_FEATURES[0])}
+              {renderCompactSquareCard(COMBINED_FEATURES[1])}
+            </div>
+          )}
+
+          {/* Pair 2: Unbiased Setup Insights & Error Pattern Detection (2 small square cards side-by-side on mobile, 2 columns on desktop) */}
+          {activeTab === 'all' && (
+            <div className="grid grid-cols-2 gap-3 md:gap-6">
+              {renderCompactSquareCard(COMBINED_FEATURES[2])}
+              {renderCompactSquareCard(COMBINED_FEATURES[3])}
+            </div>
+          )}
+
+          {/* If Progress tab is selected, render Unbiased Setup Insights */}
+          {activeTab === 'progress' && (
+            <div className="grid grid-cols-2 gap-3 md:gap-6">
+              {renderCompactSquareCard(COMBINED_FEATURES[2])}
+              <div className="hidden md:block" />
+            </div>
+          )}
+
+          {/* If Psychology tab is selected, render Error Pattern Detection */}
+          {activeTab === 'psychology' && (
+            <div className="grid grid-cols-2 gap-3 md:gap-6">
+              {renderCompactSquareCard(COMBINED_FEATURES[3])}
+              <div className="hidden md:block" />
+            </div>
+          )}
+
+          {/* Pair 3: Psychology & FOMO Guard & Overtrade & Revenge Alerts */}
+          {(activeTab === 'all' || activeTab === 'psychology') && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
+              {renderNormalCard(COMBINED_FEATURES[4])}
+              {renderNormalCard(COMBINED_FEATURES[5])}
+            </div>
+          )}
+
         </div>
 
         {/* Action Button */}
