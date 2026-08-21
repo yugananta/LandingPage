@@ -80,7 +80,7 @@ export default function BenefitsSection() {
             </div>
 
             {/* Headline Title */}
-            <h2 className="text-3xl md:text-5xl font-black text-white leading-tight max-w-3xl">
+            <h2 className="text-3xl md:text-5xl font-black text-white leading-tight max-w-none md:whitespace-nowrap">
               Build the Community <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-violet-400 bg-clip-text text-transparent">in Your City.</span>
             </h2>
             
