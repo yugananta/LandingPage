@@ -47,23 +47,23 @@ export default function LearnSection() {
     return (
       <div 
         key={f.title}
-        className="p-3.5 sm:p-4 md:p-5 rounded-2xl bg-surface-container-low border border-surface-variant/15 hover:border-primary/30 transition-all duration-300 group flex flex-col md:flex-row justify-between md:justify-start gap-2 md:gap-4 items-start text-left h-full animate-on-scroll fade-in-up"
+        className="p-3.5 sm:p-4 md:p-5 rounded-2xl bg-gradient-to-b from-[#181b30] to-[#121424] border border-white/10 hover:border-indigo-500/40 hover:from-[#1e233d] hover:to-[#16192c] shadow-lg transition-all duration-300 group flex flex-col md:flex-row justify-between md:justify-start gap-2 md:gap-4 items-start text-left h-full animate-on-scroll fade-in-up"
       >
-        <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
-          <span className="material-symbols-outlined text-primary-fixed text-base md:text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>
+        <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0">
+          <span className="material-symbols-outlined text-indigo-300 group-hover:text-white text-base md:text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>
             {f.icon}
           </span>
         </div>
         <div className="flex flex-col justify-between h-full md:h-auto md:block flex-1">
           <div>
-            <h3 className="text-on-surface font-extrabold md:font-bold text-xs sm:text-sm md:text-base mb-1 tracking-tight leading-tight md:leading-normal">{f.title}</h3>
-            <p className="text-on-surface-variant text-[10px] sm:text-xs md:text-sm leading-relaxed mb-2 md:mb-2.5 line-clamp-3 sm:line-clamp-4 md:line-clamp-none">{f.desc}</p>
+            <h3 className="text-white font-extrabold md:font-bold text-xs sm:text-sm md:text-base mb-1 tracking-tight leading-tight md:leading-normal">{f.title}</h3>
+            <p className="text-slate-300 text-[10px] sm:text-xs md:text-sm leading-relaxed mb-2 md:mb-2.5 line-clamp-3 sm:line-clamp-4 md:line-clamp-none">{f.desc}</p>
           </div>
           <div>
             <span className={`text-[7.5px] sm:text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-full border inline-block ${
               f.category === 'progress' 
-                ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' 
-                : 'bg-violet-500/10 text-violet-400 border-violet-500/20'
+                ? 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30' 
+                : 'bg-violet-500/15 text-violet-300 border-violet-500/30'
             }`}>
               {f.category === 'progress' ? 'Progress' : 'AI Psychology'}
             </span>
@@ -78,20 +78,20 @@ export default function LearnSection() {
     return (
       <div 
         key={f.title}
-        className="p-5 rounded-2xl bg-surface-container-low border border-surface-variant/15 hover:border-primary/30 transition-all duration-300 group flex gap-4 items-start text-left animate-on-scroll fade-in-up"
+        className="p-5 rounded-2xl bg-gradient-to-b from-[#181b30] to-[#121424] border border-white/10 hover:border-indigo-500/40 hover:from-[#1e233d] hover:to-[#16192c] shadow-lg transition-all duration-300 group flex gap-4 items-start text-left animate-on-scroll fade-in-up"
       >
-        <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
-          <span className="material-symbols-outlined text-primary-fixed text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>
+        <div className="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0">
+          <span className="material-symbols-outlined text-indigo-300 group-hover:text-white text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>
             {f.icon}
           </span>
         </div>
         <div>
-          <h3 className="text-on-surface font-bold text-base mb-1 tracking-tight">{f.title}</h3>
-          <p className="text-on-surface-variant text-xs md:text-sm leading-relaxed mb-2.5">{f.desc}</p>
+          <h3 className="text-white font-bold text-base mb-1 tracking-tight">{f.title}</h3>
+          <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-2.5">{f.desc}</p>
           <span className={`text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-full border inline-block ${
             f.category === 'progress' 
-              ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' 
-              : 'bg-violet-500/10 text-violet-400 border-violet-500/20'
+              ? 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30' 
+              : 'bg-violet-500/15 text-violet-300 border-violet-500/30'
           }`}>
             {f.category === 'progress' ? 'Progress' : 'AI Psychology'}
           </span>
@@ -102,26 +102,26 @@ export default function LearnSection() {
 
   return (
     <>
-      <section id="ai-coach" className="pt-6 pb-16 lg:pt-8 lg:pb-24 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-background relative overflow-hidden">
+      <section id="ai-coach" className="pt-6 pb-16 lg:pt-8 lg:pb-24 px-margin-desktop md:px-margin-desktop px-margin-mobile bg-[#0c0e18] relative overflow-hidden border-t border-white/10">
         {/* Ambient glows */}
-        <div className="absolute top-1/3 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/3 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-container-max mx-auto relative z-10">
         
         {/* ── SECTION HEADER ── */}
         <div className="text-center max-w-3xl mx-auto mb-12 animate-on-scroll fade-in-up">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary-fixed text-[10px] font-bold uppercase tracking-widest mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 text-indigo-300 text-[10px] font-bold uppercase tracking-widest mb-5">
             <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>auto_stories</span>
             TRACK PROGRESS & PSYCHOLOGY AI AUDIT
           </div>
 
-          <h2 className="font-display-lg text-3xl md:text-5xl font-black text-on-background mb-4 leading-tight">
+          <h2 className="font-display-lg text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
             Track Your Trading Progress & Let AI Review Your{' '}
             <span className="primary-gradient-text">Psychology</span>.
           </h2>
 
-          <p className="text-on-surface-variant font-body-md text-base leading-relaxed">
+          <p className="text-slate-300/80 font-body-md text-base leading-relaxed">
             Automatically log every trade, monitor performance metrics in real-time, and let AI analyze your psychology to eliminate revenge trading, FOMO, and costly error patterns.
           </p>
 
@@ -137,8 +137,8 @@ export default function LearnSection() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-2 border ${
                   activeTab === tab.id
-                    ? 'primary-gradient-bg text-white border-transparent shadow-lg shadow-primary/20 scale-105'
-                    : 'bg-surface-container-low text-on-surface-variant border-surface-variant/20 hover:border-primary/40'
+                    ? 'primary-gradient-bg text-white border-transparent shadow-lg shadow-primary/30 scale-105'
+                    : 'bg-gradient-to-b from-[#181b30] to-[#121424] text-slate-300 border-white/10 hover:border-indigo-500/40 hover:text-white shadow-md'
                 }`}
               >
                 <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>
@@ -154,23 +154,30 @@ export default function LearnSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
 
           {/* ── LEFT VISUAL: Track Trading Progress (Journal & Stats) ── */}
-          <div className={`lg:col-span-6 transition-all duration-500 ${
-            activeTab === 'psychology' ? 'opacity-40 scale-98 hidden md:block' : 'opacity-100 scale-100'
-          }`}>
-            <div className="glass-card rounded-3xl p-6 glow-effect h-full flex flex-col justify-between border border-surface-variant/20 relative overflow-hidden">
+          <div 
+            onClick={() => setActiveTab('progress')}
+            className={`lg:col-span-6 transition-all duration-300 cursor-pointer rounded-3xl ${
+              activeTab === 'progress' 
+                ? 'ring-2 ring-indigo-500/80 shadow-2xl shadow-indigo-950/60 scale-[1.01]' 
+                : 'hover:scale-[1.005]'
+            }`}
+          >
+            <div className={`glass-card rounded-3xl p-6 glow-effect h-full flex flex-col justify-between border relative overflow-hidden bg-gradient-to-b from-[#181b30] to-[#121424] shadow-[0_15px_40px_rgba(0,0,0,0.45)] transition-colors ${
+              activeTab === 'progress' ? 'border-indigo-400/50' : 'border-white/10'
+            }`}>
               
               {/* Header */}
-              <div className="flex items-center justify-between border-b border-surface-variant/20 pb-4 mb-5">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-black text-xs shadow-md shadow-indigo-500/20">
+                  <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-black text-xs shadow-md shadow-indigo-500/30">
                     GT
                   </div>
                   <div>
-                    <div className="text-on-surface font-extrabold text-sm">Trading Progress & Journal</div>
-                    <div className="text-on-surface-variant text-[11px]">Automatic Trade Recording</div>
+                    <div className="text-white font-extrabold text-sm">Trading Progress & Journal</div>
+                    <div className="text-slate-400 text-[11px]">Automatic Trade Recording</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full text-emerald-400 text-[10px] font-bold">
+                <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/25 px-3 py-1 rounded-full text-emerald-400 text-[10px] font-bold">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                   LIVE SYNC
                 </div>
@@ -179,48 +186,48 @@ export default function LearnSection() {
               {/* Transactions / Progress Log */}
               <div className="flex flex-col gap-3 mb-4">
                 {/* Trade 1 */}
-                <div className="bg-surface-container border border-surface-variant/20 rounded-2xl p-4 text-left hover:-translate-y-0.5 transition-transform duration-200">
+                <div className="bg-[#1e233d] border border-white/10 rounded-2xl p-4 text-left hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
                   <div className="flex items-center justify-between mb-1.5">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold text-[9px]">BUY</span>
-                      <span className="text-on-surface font-extrabold text-xs">XAUUSD</span>
-                      <span className="text-on-surface-variant text-[10px]">1.00 Lot</span>
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[9px]">BUY</span>
+                      <span className="text-white font-extrabold text-xs">XAUUSD</span>
+                      <span className="text-slate-400 text-[10px]">1.00 Lot</span>
                     </div>
-                    <span className="text-on-surface-variant text-[10px]">1 hour ago</span>
+                    <span className="text-slate-400 text-[10px]">1 hour ago</span>
                   </div>
                   <div className="flex items-end justify-between">
                     <div>
-                      <div className="text-[10px] text-on-surface-variant">Entry: <span className="font-bold text-on-surface">2315.40</span></div>
-                      <div className="text-[10px] text-on-surface-variant">Exit: <span className="font-bold text-on-surface">2326.75</span></div>
+                      <div className="text-[10px] text-slate-400">Entry: <span className="font-bold text-white">2315.40</span></div>
+                      <div className="text-[10px] text-slate-400">Exit: <span className="font-bold text-white">2326.75</span></div>
                     </div>
                     <div className="text-emerald-400 font-black text-base">+$1,135.01 USD</div>
                   </div>
                 </div>
 
                 {/* Trade 2 */}
-                <div className="bg-surface-container/70 border border-surface-variant/15 rounded-2xl p-3.5 text-left">
+                <div className="bg-[#1e233d]/80 border border-white/10 rounded-2xl p-3.5 text-left shadow-sm">
                   <div className="flex items-center justify-between mb-1.5">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold text-[9px]">BUY</span>
-                      <span className="text-on-surface font-extrabold text-xs">GBPUSD</span>
-                      <span className="text-on-surface-variant text-[10px]">0.50 Lot</span>
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[9px]">BUY</span>
+                      <span className="text-white font-extrabold text-xs">GBPUSD</span>
+                      <span className="text-slate-400 text-[10px]">0.50 Lot</span>
                     </div>
-                    <span className="text-on-surface-variant text-[10px]">4 hours ago</span>
+                    <span className="text-slate-400 text-[10px]">4 hours ago</span>
                   </div>
                   <div className="flex items-end justify-between">
                     <div>
-                      <div className="text-[10px] text-on-surface-variant">Entry: <span className="font-bold text-on-surface">1.26400</span></div>
+                      <div className="text-[10px] text-slate-400">Entry: <span className="font-bold text-white">1.26400</span></div>
                     </div>
                     <div className="text-emerald-400 font-black text-sm">+$340.20 USD</div>
                   </div>
                 </div>
 
                 {/* Trade 3 */}
-                <div className="bg-surface-container/40 border border-surface-variant/10 rounded-2xl p-3 text-left">
+                <div className="bg-[#1e233d]/60 border border-white/10 rounded-2xl p-3 text-left shadow-sm">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-rose-500/15 text-rose-400 font-bold text-[9px]">SELL</span>
-                      <span className="text-on-surface font-extrabold text-xs">BTCUSD</span>
+                      <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 font-bold text-[9px]">SELL</span>
+                      <span className="text-white font-extrabold text-xs">BTCUSD</span>
                     </div>
                     <div className="text-rose-400 font-black text-xs">-$120.00 USD</div>
                   </div>
@@ -228,12 +235,12 @@ export default function LearnSection() {
               </div>
 
               {/* Bottom Progress Metrics Banner */}
-              <div className="bg-primary/10 border border-primary/20 rounded-2xl p-3.5 flex items-center justify-between text-xs">
-                <span className="text-on-surface font-bold flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary-fixed text-base">trending_up</span>
+              <div className="bg-gradient-to-r from-indigo-950/60 to-purple-950/60 border border-indigo-500/30 rounded-2xl p-3.5 flex items-center justify-between text-xs">
+                <span className="text-white font-bold flex items-center gap-2">
+                  <span className="material-symbols-outlined text-indigo-300 text-base">trending_up</span>
                   Total Progress
                 </span>
-                <span className="text-primary-fixed font-black text-sm">+$1,355.21 USD</span>
+                <span className="text-indigo-300 font-black text-sm">+$1,355.21 USD</span>
               </div>
 
             </div>
@@ -243,17 +250,17 @@ export default function LearnSection() {
           <div className={`lg:col-span-6 transition-all duration-500 ${
             activeTab === 'progress' ? 'opacity-40 scale-98 hidden md:block' : 'opacity-100 scale-100'
           }`}>
-            <div className="glass-card rounded-3xl p-6 glow-effect h-full flex flex-col justify-between border border-surface-variant/20 relative overflow-hidden">
+            <div className="glass-card rounded-3xl p-6 glow-effect h-full flex flex-col justify-between border border-white/10 relative overflow-hidden bg-gradient-to-b from-[#181b30] to-[#121424] shadow-[0_15px_40px_rgba(0,0,0,0.45)]">
 
               {/* Top bar */}
-              <div className="flex items-center justify-between border-b border-surface-variant/20 pb-4 mb-5">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-primary-fixed text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>smart_toy</span>
+                  <div className="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-indigo-300 text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>smart_toy</span>
                   </div>
                   <div>
-                    <div className="text-on-surface font-bold text-sm">AI Audit & Review Assistant</div>
-                    <div className="text-on-surface-variant text-xs">Psychology & Discipline Evaluator</div>
+                    <div className="text-white font-bold text-sm">AI Audit & Review Assistant</div>
+                    <div className="text-slate-400 text-xs">Psychology & Discipline Evaluator</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -269,25 +276,25 @@ export default function LearnSection() {
                   { label: 'Avg R:R', val: '1:1.5', pct: 50, color: '#8b5cf6' },
                   { label: 'Discipline', val: 'Grade A', pct: 92, color: '#a78bfa' },
                 ].map((m, i) => (
-                  <div key={i} className="bg-surface-container rounded-xl p-3 text-center border border-surface-variant/20">
+                  <div key={i} className="bg-[#1e233d] rounded-xl p-3 text-center border border-white/10 shadow-sm">
                     <div className="relative w-12 h-12 mx-auto mb-1">
                       <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                         <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                           fill="none" stroke="var(--border-card-color)" strokeWidth="3" />
+                           fill="none" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="3" />
                         <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                            fill="none" stroke={m.color} strokeDasharray={`${m.pct}, 100`} strokeWidth="3" strokeLinecap="round" />
                       </svg>
-                      <span className="absolute inset-0 flex items-center justify-center text-on-surface font-black text-[10px]">{m.val}</span>
+                      <span className="absolute inset-0 flex items-center justify-center text-white font-black text-[10px]">{m.val}</span>
                     </div>
-                    <div className="text-on-surface-variant text-[9px]">{m.label}</div>
+                    <div className="text-slate-400 text-[9px]">{m.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Weekly chart bars */}
-              <div className="bg-surface-container rounded-xl p-3 border border-surface-variant/20 mb-3">
+              <div className="bg-[#1e233d] rounded-xl p-3 border border-white/10 mb-3 shadow-sm">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-on-surface text-xs font-bold">Psychology Consistency</span>
+                  <span className="text-white text-xs font-bold">Psychology Consistency</span>
                   <span className="text-emerald-400 text-xs font-bold">+12.4%</span>
                 </div>
                 <div className="flex items-end gap-2 h-12">
@@ -299,7 +306,7 @@ export default function LearnSection() {
                           height: `${h}%`,
                           background: h >= 80
                             ? 'linear-gradient(to top, #6366f1, #8b5cf6)'
-                            : 'rgba(99,102,241,0.2)'
+                            : 'rgba(99,102,241,0.25)'
                         }}
                       />
                     </div>
@@ -308,14 +315,14 @@ export default function LearnSection() {
               </div>
 
               {/* Danger Pattern Warning Box */}
-              <div className="rounded-xl p-3.5 border border-amber-500/30 bg-amber-500/10 text-left">
+              <div className="rounded-xl p-3.5 border border-amber-500/35 bg-amber-500/15 text-left shadow-sm">
                 <div className="flex items-start gap-2.5">
                   <span className="material-symbols-outlined text-amber-400 text-base mt-0.5 shrink-0" style={{ fontVariationSettings: '"FILL" 1' }}>
                     warning
                   </span>
                   <div>
-                    <div className="text-on-surface font-bold text-xs mb-0.5">Danger Pattern Detected</div>
-                    <p className="text-on-surface-variant text-[10px] leading-relaxed">
+                    <div className="text-white font-bold text-xs mb-0.5">Danger Pattern Detected</div>
+                    <p className="text-slate-300 text-[10px] leading-relaxed">
                       You tend to open new positions within 15 minutes of a cut loss on XAUUSD. Win rate of revenge trades is only 22%. Recommendation: 2-hour cooldown.
                     </p>
                   </div>
@@ -327,48 +334,26 @@ export default function LearnSection() {
 
         </div>
 
-        {/* ── COMBINED FEATURES LIST ── */}
+        {/* ── COMBINED FEATURES LIST (Always visible, exactly as in screenshot) ── */}
         <div className="flex flex-col gap-3 md:gap-6">
           
-          {/* Pair 1: Automatic Trade Logging & Progress & Statistics (2 small square cards side-by-side on mobile, 2 columns on desktop) */}
-          {(activeTab === 'all' || activeTab === 'progress') && (
-            <div className="grid grid-cols-2 gap-3 md:gap-6">
-              {renderCompactSquareCard(COMBINED_FEATURES[0])}
-              {renderCompactSquareCard(COMBINED_FEATURES[1])}
-            </div>
-          )}
+          {/* Pair 1: Automatic Trade Logging & Progress & Statistics (2 small square cards side-by-side) */}
+          <div className="grid grid-cols-2 gap-3 md:gap-6">
+            {renderCompactSquareCard(COMBINED_FEATURES[0])}
+            {renderCompactSquareCard(COMBINED_FEATURES[1])}
+          </div>
 
-          {/* Pair 2: Unbiased Setup Insights & Error Pattern Detection (2 small square cards side-by-side on mobile, 2 columns on desktop) */}
-          {activeTab === 'all' && (
-            <div className="grid grid-cols-2 gap-3 md:gap-6">
-              {renderCompactSquareCard(COMBINED_FEATURES[2])}
-              {renderCompactSquareCard(COMBINED_FEATURES[3])}
-            </div>
-          )}
-
-          {/* If Progress tab is selected, render Unbiased Setup Insights */}
-          {activeTab === 'progress' && (
-            <div className="grid grid-cols-2 gap-3 md:gap-6">
-              {renderCompactSquareCard(COMBINED_FEATURES[2])}
-              <div className="hidden md:block" />
-            </div>
-          )}
-
-          {/* If Psychology tab is selected, render Error Pattern Detection */}
-          {activeTab === 'psychology' && (
-            <div className="grid grid-cols-2 gap-3 md:gap-6">
-              {renderCompactSquareCard(COMBINED_FEATURES[3])}
-              <div className="hidden md:block" />
-            </div>
-          )}
+          {/* Pair 2: Unbiased Setup Insights & Error Pattern Detection (2 small square cards side-by-side) */}
+          <div className="grid grid-cols-2 gap-3 md:gap-6">
+            {renderCompactSquareCard(COMBINED_FEATURES[2])}
+            {renderCompactSquareCard(COMBINED_FEATURES[3])}
+          </div>
 
           {/* Pair 3: Psychology & FOMO Guard & Overtrade & Revenge Alerts */}
-          {(activeTab === 'all' || activeTab === 'psychology') && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
-              {renderNormalCard(COMBINED_FEATURES[4])}
-              {renderNormalCard(COMBINED_FEATURES[5])}
-            </div>
-          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
+            {renderNormalCard(COMBINED_FEATURES[4])}
+            {renderNormalCard(COMBINED_FEATURES[5])}
+          </div>
 
         </div>
 

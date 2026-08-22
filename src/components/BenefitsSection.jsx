@@ -31,14 +31,14 @@ export default function BenefitsSection() {
   };
 
   return (
-    <section className="py-12 lg:py-16 bg-[#1a1c29] relative overflow-hidden border-t border-white/5">
+    <section className="py-12 lg:py-16 bg-[#0c0e18] relative overflow-hidden border-t border-white/10">
       
       {/* Background glow ambient */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       {/* TOP SECTION: Full Width Video (Edge-to-Edge, NO PADDING AT ALL) */}
       <div className="w-full mb-12 animate-on-scroll scale-up">
-        <div className="relative w-full aspect-[16/9] md:aspect-[2.4/1] overflow-hidden border-y border-white/10 shadow-2xl bg-[#222436] flex items-center justify-center group">
+        <div className="relative w-full aspect-[16/9] md:aspect-[2.4/1] overflow-hidden border-y border-white/15 shadow-2xl bg-[#141728] flex items-center justify-center group">
           
           {/* HTML5 Video */}
           <video
@@ -74,7 +74,7 @@ export default function BenefitsSection() {
           <div className="w-full max-w-[960px] flex flex-col gap-6 text-center items-center animate-on-scroll fade-in-up">
             
             {/* Upper Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/20 bg-indigo-500/5 text-indigo-300 text-xs font-bold uppercase tracking-widest w-fit">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold uppercase tracking-widest w-fit">
               <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>diversity_1</span>
               WHY GOTRADING
             </div>
@@ -84,7 +84,7 @@ export default function BenefitsSection() {
               Build the Community <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-violet-400 bg-clip-text text-transparent">in Your City.</span>
             </h2>
             
-            <p className="text-white/60 text-base max-w-2xl mx-auto -mt-2">
+            <p className="text-slate-300/80 text-base max-w-2xl mx-auto -mt-2 leading-relaxed">
               No active trading community in your area? Start one here. GoTrading helps you form and expand local trading circles, so you can transition from trading in isolation to growing with support.
             </p>
 
@@ -97,8 +97,8 @@ export default function BenefitsSection() {
                     key={idx}
                     className={`p-6 rounded-2xl border transition-all duration-300 cursor-pointer text-left flex flex-col gap-4 ${
                       isActive 
-                        ? 'bg-[#2d3047] border-indigo-500/30 shadow-lg' 
-                        : 'bg-[#222436]/60 border-white/5 hover:bg-[#222436] hover:border-white/10'
+                        ? 'bg-gradient-to-b from-[#222746] to-[#171a32] border-indigo-500/60 shadow-xl shadow-indigo-950/50 ring-1 ring-indigo-500/20' 
+                        : 'bg-gradient-to-b from-[#181b30] to-[#121424] border-white/10 hover:border-indigo-500/40 hover:from-[#1e233d] hover:to-[#16192c] shadow-lg'
                     }`}
                     onClick={() => setActiveIndex(idx)}
                     onMouseEnter={() => setActiveIndex(idx)}
@@ -107,8 +107,8 @@ export default function BenefitsSection() {
                       {/* Icon container */}
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
                         isActive 
-                          ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' 
-                          : 'bg-white/5 text-white/40'
+                          ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30' 
+                          : 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/20'
                       }`}>
                         <span className="material-symbols-outlined text-xl">{item.icon}</span>
                       </div>
@@ -116,8 +116,8 @@ export default function BenefitsSection() {
                       {/* Item Title */}
                       <h3 className={`text-lg md:text-xl font-bold transition-all duration-300 ${
                         isActive 
-                          ? 'bg-gradient-to-r from-indigo-300 via-purple-300 to-violet-300 bg-clip-text text-transparent' 
-                          : 'text-white/60'
+                          ? 'bg-gradient-to-r from-indigo-200 via-purple-200 to-white bg-clip-text text-transparent' 
+                          : 'text-white'
                       }`}>
                         {item.title}
                       </h3>
@@ -125,7 +125,7 @@ export default function BenefitsSection() {
 
                     {/* Description */}
                     <p className={`text-xs md:text-sm leading-relaxed transition-all duration-300 ${
-                      isActive ? 'text-white/80' : 'text-white/40'
+                      isActive ? 'text-slate-200' : 'text-slate-300/80'
                     }`}>
                       {item.desc}
                     </p>

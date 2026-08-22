@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* Soft Dark Mode (Primary Theme) */
-  --bg-color: #1a1c29;
-  --on-bg-color: #e1e1f0;
-  --surface-color: #222436;
-  --on-surface-color: #e1e1f0;
-  --surface-container-color: #2d3047;
-  --surface-container-low-color: #222436;
-  --surface-container-lowest-color: #141522;
-  --on-surface-variant-color: #c7c4d8;
-  --surface-variant-color: #373a55;
+  /* Soft Dark Mode (Primary Theme) - Redesigned for rich contrast & aesthetic depth */
+  --bg-color: #0c0e18;
+  --on-bg-color: #f1f2fc;
+  --surface-color: #181b30;
+  --on-surface-color: #f8f9ff;
+  --surface-container-color: #1e233d;
+  --surface-container-low-color: #131525;
+  --surface-container-lowest-color: #080911;
+  --on-surface-variant-color: #9da3be;
+  --surface-variant-color: #2b3154;
 
   --tertiary-fixed-dim-color: #ffb68d;
   --on-tertiary-fixed-color: #331200;
@@ -21,22 +21,22 @@
   --primary-color: #7c6af7;
   --primary-fixed-color: #a5a0ff;
 
-  --border-card-color: rgba(255, 255, 255, 0.08);
-  --glow-shadow-color: rgba(124, 106, 247, 0.15);
-  --network-map-mask: #222436;
+  --border-card-color: rgba(255, 255, 255, 0.1);
+  --glow-shadow-color: rgba(124, 106, 247, 0.2);
+  --network-map-mask: #181b30;
 }
 
 .dark {
-  /* Keep same as root to guarantee single theme */
-  --bg-color: #1a1c29;
-  --on-bg-color: #e1e1f0;
-  --surface-color: #222436;
-  --on-surface-color: #e1e1f0;
-  --surface-container-color: #2d3047;
-  --surface-container-low-color: #222436;
-  --surface-container-lowest-color: #141522;
-  --on-surface-variant-color: #c7c4d8;
-  --surface-variant-color: #373a55;
+  /* Deep Premium Midnight Dark Theme with crisp card contrast */
+  --bg-color: #0c0e18;
+  --on-bg-color: #f1f2fc;
+  --surface-color: #181b30;
+  --on-surface-color: #f8f9ff;
+  --surface-container-color: #1e233d;
+  --surface-container-low-color: #131525;
+  --surface-container-lowest-color: #080911;
+  --on-surface-variant-color: #9da3be;
+  --surface-variant-color: #2b3154;
 
   --tertiary-fixed-dim-color: #ffb68d;
   --on-tertiary-fixed-color: #331200;
@@ -47,9 +47,9 @@
   --primary-color: #c3c0ff;
   --primary-fixed-color: #e2dfff;
 
-  --border-card-color: rgba(255, 255, 255, 0.08);
-  --glow-shadow-color: rgba(124, 106, 247, 0.15);
-  --network-map-mask: #222436;
+  --border-card-color: rgba(255, 255, 255, 0.1);
+  --glow-shadow-color: rgba(124, 106, 247, 0.2);
+  --network-map-mask: #181b30;
 }
 
 @theme {
@@ -165,14 +165,14 @@ body {
 
 .glass-card {
   border: 1px solid var(--border-card-color);
-  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.05);
-  background-color: var(--surface-color);
-  backdrop-filter: blur(12px);
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(180deg, #181b30 0%, #121424 100%);
+  backdrop-filter: blur(16px);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .dark .glass-card {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-  background-color: rgba(29, 31, 42, 0.7);
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.45);
+  background: linear-gradient(180deg, #181b30 0%, #121424 100%);
 }
 
 .primary-gradient-text {

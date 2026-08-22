@@ -98,7 +98,7 @@ export default function Navbar() {
                   className="fixed inset-0 z-40" 
                   onClick={() => setLangOpen(false)} 
                 />
-                <div className="absolute right-0 top-full mt-3 w-[220px] rounded-2xl bg-[#edf2f9] border border-slate-200/80 shadow-2xl py-2 px-1.5 z-50 text-left animate-on-scroll is-visible scale-up">
+                <div className="absolute right-0 top-full mt-3 w-[220px] rounded-2xl bg-[#181b30] border border-white/15 shadow-2xl py-2 px-1.5 z-50 text-left animate-on-scroll is-visible scale-up backdrop-blur-xl">
                   {LANGUAGES.map((lang) => {
                     const isSelected = lang.code === selectedLang.code;
                     return (
@@ -110,13 +110,13 @@ export default function Navbar() {
                         }}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-150 text-left ${
                           isSelected 
-                            ? 'bg-blue-100/70 text-indigo-950 font-bold' 
-                            : 'hover:bg-slate-100 text-slate-700'
+                            ? 'bg-indigo-600/30 text-white font-bold border border-indigo-400/30' 
+                            : 'hover:bg-white/5 text-slate-300'
                         }`}
                       >
                         <span className="text-xl leading-none">{lang.flag}</span>
-                        <span className="text-xs text-slate-400 font-bold w-5">{lang.code}</span>
-                        <span className={`text-sm ${isSelected ? 'text-indigo-800 font-extrabold' : 'text-slate-800 font-medium'}`}>
+                        <span className="text-xs text-indigo-300 font-bold w-5">{lang.code}</span>
+                        <span className={`text-sm ${isSelected ? 'text-white font-extrabold' : 'text-slate-200 font-medium'}`}>
                           {lang.label}
                         </span>
                       </button>
